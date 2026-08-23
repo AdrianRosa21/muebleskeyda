@@ -113,7 +113,7 @@ namespace Modelo.Entidades
                     transaccion.Commit();
                     return filasAfectadas > 0;
                 }
-                catch (Exception e) { System.Windows.Forms.MessageBox.Show(e.Message);
+                catch (Exception)
                 {
                     transaccion.Rollback();
                     return false;
@@ -134,7 +134,10 @@ namespace Modelo.Entidades
                     {
                         return comandoObjeto.ExecuteNonQuery() > 0;
                     }
-                    catch (Exception) { return false; }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
                 }
             }
         }
