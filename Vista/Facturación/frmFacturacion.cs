@@ -120,11 +120,13 @@ namespace Vista.Facturación
         {
             if (int.TryParse(txtProductosCotizadosFacturados.Text, out int idVenta))
             {
-                Modelo.Entidades.DbFactura nuevaFactura = new Modelo.Entidades.DbFactura();
-                nuevaFactura.FechaEmision = dtFechaDatosGeneralesFactura.Value;
-                nuevaFactura.FechaVencimiento = dateTimePicker3.Value; // Asumiendo que dateTimePicker3 es fecha vencimiento
-                nuevaFactura.IdVenta = idVenta;
-                nuevaFactura.Observaciones = txtObservaciones.Text;
+                Modelo.Entidades.DbFactura nuevaFactura = new Modelo.Entidades.DbFactura(
+                    0, 
+                    dtFechaDatosGeneralesFactura.Value, 
+                    dateTimePicker3.Value, 
+                    idVenta, 
+                    txtObservaciones.Text
+                );
                 
                 try
                 {
@@ -151,3 +153,4 @@ namespace Vista.Facturación
         }
     }
 }
+
