@@ -1,4 +1,4 @@
-namespace Vista.Facturaciï¿½n
+namespace Vista.Facturación
 {
     partial class frmFacturacion
     {
@@ -219,7 +219,7 @@ namespace Vista.Facturaciï¿½n
             this.lblSubTextoFactura.Name = "lblSubTextoFactura";
             this.lblSubTextoFactura.Size = new System.Drawing.Size(390, 21);
             this.lblSubTextoFactura.TabIndex = 49;
-            this.lblSubTextoFactura.Text = "Emisiï¿½n de facturas para clientes de forma sencilla.";
+            this.lblSubTextoFactura.Text = "Emisión de facturas para clientes de forma sencilla.";
             // 
             // lblMensajeInformativoPrincipalFacturacion
             // 
@@ -328,7 +328,7 @@ namespace Vista.Facturaciï¿½n
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(506, 29);
             this.txtBuscar.TabIndex = 13;
-            this.txtBuscar.Text = "Buscar por cï¿½digo de Factura...";
+            this.txtBuscar.Text = "Buscar por código de Factura...";
             // 
             // pnlContenedorTabla
             // 
@@ -666,7 +666,7 @@ namespace Vista.Facturaciï¿½n
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(68, 19);
             this.lblTelefono.TabIndex = 1;
-            this.lblTelefono.Text = "Telï¿½fono :";
+            this.lblTelefono.Text = "Teléfono :";
             // 
             // btnLimpiarFactura
             // 
@@ -717,7 +717,7 @@ namespace Vista.Facturaciï¿½n
             this.lblNFactura.Name = "lblNFactura";
             this.lblNFactura.Size = new System.Drawing.Size(84, 19);
             this.lblNFactura.TabIndex = 25;
-            this.lblNFactura.Text = "Nï¿½ Factura :";
+            this.lblNFactura.Text = "N° Factura :";
             // 
             // txtNumeroFactura
             // 
@@ -792,7 +792,7 @@ namespace Vista.Facturaciï¿½n
             this.lblFechaEmisionFactura.Name = "lblFechaEmisionFactura";
             this.lblFechaEmisionFactura.Size = new System.Drawing.Size(123, 19);
             this.lblFechaEmisionFactura.TabIndex = 1;
-            this.lblFechaEmisionFactura.Text = "Fecha de Emisiï¿½n :";
+            this.lblFechaEmisionFactura.Text = "Fecha de Emisión :";
             // 
             // btnGenerarFactura
             // 
@@ -859,7 +859,7 @@ namespace Vista.Facturaciï¿½n
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(122, 19);
             this.label8.TabIndex = 30;
-            this.label8.Text = "Fecha del Pedido :";
+            this.label8.Text = "Fecha de la Venta :";
             // 
             // btnBuscarPedido
             // 
@@ -892,7 +892,7 @@ namespace Vista.Facturaciï¿½n
             this.lblProductosFactura.Name = "lblProductosFactura";
             this.lblProductosFactura.Size = new System.Drawing.Size(96, 19);
             this.lblProductosFactura.TabIndex = 3;
-            this.lblProductosFactura.Text = "Nï¿½ de Pedido:";
+            this.lblProductosFactura.Text = "N° de Pedido:";
             // 
             // txtProductosCotizadosFacturados
             // 
@@ -1175,5 +1175,4 @@ namespace Vista.Facturaciï¿½n
         private System.Windows.Forms.DataGridView dgvDetalleFactura;
     }
 }
-
 
