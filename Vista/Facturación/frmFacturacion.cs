@@ -115,5 +115,39 @@ namespace Vista.Facturación
                 MessageBox.Show("Ingresa un ID válido.");
             }
         }
+    
+        private void btnGuardarFactura_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtProductosCotizadosFacturados.Text, out int idVenta))
+            {
+                Modelo.Entidades.DbFactura nuevaFactura = new Modelo.Entidades.DbFactura();
+                nuevaFactura.FechaEmision = dtFechaDatosGeneralesFactura.Value;
+                nuevaFactura.FechaVencimiento = dateTimePicker3.Value; // Asumiendo que dateTimePicker3 es fecha vencimiento
+                nuevaFactura.IdVenta = idVenta;
+                nuevaFactura.Observaciones = txtObservaciones.Text;
+                
+                try
+                {
+                    nuevaFactura.InsertarFactura();
+                    MessageBox.Show("Factura guardada correctamente.");
+                    // Limpiar UI
+                    dgvDetalleFactura.DataSource = null;
+                    txtProductosCotizadosFacturados.Clear();
+                    txtObservaciones.Clear();
+                    textBox1.Clear();
+                    txtSubTotal2.Clear();
+                    txtTotal2.Clear();
+                    txtIVA2.Clear();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar la factura: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, busque y cargue una venta (pedido) antes de guardar la factura.");
+            }
+        }
     }
 }

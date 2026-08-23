@@ -1017,6 +1017,7 @@ namespace Vista.Facturación
             this.btnGuardarFactura.TabIndex = 33;
             this.btnGuardarFactura.Text = "Guardar Factura";
             this.btnGuardarFactura.UseVisualStyleBackColor = false;
+            this.btnGuardarFactura.Click += new System.EventHandler(this.btnGuardarFactura_Click);
             // 
             // pnlVistaPreviaFactura
             // 
@@ -1174,3 +1175,4 @@ namespace Vista.Facturación
         private System.Windows.Forms.DataGridView dgvDetalleFactura;
     }
 }
+
