@@ -91,7 +91,7 @@ namespace Modelo.Entidades
                                 Cliente1 = reader["Cliente"].ToString();
 
                                 Mueble1 =
-                                    reader["Mueble"].ToString();
+                                    reader["Producto"].ToString();
 
                                 FechaEntrega1 =
                                     Convert.ToDateTime(

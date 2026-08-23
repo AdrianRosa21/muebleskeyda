@@ -134,6 +134,7 @@
             this.dgvHistorialCompras.Size = new System.Drawing.Size(754, 163);
             this.dgvHistorialCompras.TabIndex = 0;
             this.dgvHistorialCompras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorialCompras_CellDoubleClick);
+            this.dgvHistorialCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorialCompras_CellDoubleClick);
             // 
             // pbBuscar
             // 

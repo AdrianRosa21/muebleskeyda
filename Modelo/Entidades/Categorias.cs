@@ -114,7 +114,7 @@ namespace Modelo.Entidades
         {
             SqlConnection conectar = Conexion.Conectar();
 
-            string comando = "UPDATE Categoria SET Estado = 'Inactiva' WHERE IdCategoria = @IdCategoria";
+            string comando = "DELETE FROM Categoria WHERE IdCategoria = @IdCategoria";
 
             SqlCommand cmd = new SqlCommand(comando, conectar);
 

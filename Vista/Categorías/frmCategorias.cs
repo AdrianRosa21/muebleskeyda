@@ -1,4 +1,4 @@
-﻿using Modelo.Entidades;
+using Modelo.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -210,3 +210,4 @@ namespace Vista.Categorías
         }
     }
     }
+
