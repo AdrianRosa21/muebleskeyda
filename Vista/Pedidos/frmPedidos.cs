@@ -88,7 +88,8 @@ namespace Vista.Pedidos
             if (idPedidoSeleccionado > 0)
             {
                 string nuevoEstado = comboBox1.Text;
-                if (DbPedidos.ActualizarEstadoPedido(idPedidoSeleccionado, nuevoEstado))
+                DateTime fechaEntrega = dtpFechaEntrega.Value;
+                if (DbPedidos.ActualizarPedido(idPedidoSeleccionado, nuevoEstado, fechaEntrega))
                 {
                     MessageBox.Show("El estado del pedido se actualizó correctamente a: " + nuevoEstado);
                     MostrarPedidos();
@@ -162,6 +163,24 @@ namespace Vista.Pedidos
             idPedidoSeleccionado = Convert.ToInt32(row.Cells["IdPedido"].Value);
             string estado = row.Cells["Estado"].Value?.ToString();
             comboBox1.Text = estado;
+            
+            // Buscar los nombres exactos de las columnas para las fechas
+            string colPedido = "";
+            string colEntrega = "";
+            foreach (DataGridViewColumn col in dgvPedidosRegistrados.Columns)
+            {
+                if (col.Name.Contains("Fecha") && col.Name.Contains("Pedido")) colPedido = col.Name;
+                if (col.Name.Contains("Fecha") && col.Name.Contains("Entrega")) colEntrega = col.Name;
+            }
+            
+            if (!string.IsNullOrEmpty(colPedido) && row.Cells[colPedido].Value != DBNull.Value && row.Cells[colPedido].Value != null)
+                dateTimePicker1.Value = Convert.ToDateTime(row.Cells[colPedido].Value);
+                
+            if (!string.IsNullOrEmpty(colEntrega) && row.Cells[colEntrega].Value != DBNull.Value && row.Cells[colEntrega].Value != null)
+                dtpFechaEntrega.Value = Convert.ToDateTime(row.Cells[colEntrega].Value);
+                
+            dgvDetallesDePedido.DataSource = null;
+            dgvDetallesDePedido.DataSource = DetallePedidos.CargarDetallesPorPedido(idPedidoSeleccionado);
         }
     }
 }
