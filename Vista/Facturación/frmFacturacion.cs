@@ -26,6 +26,11 @@ namespace Vista.Facturación
         {
             MostrarRegistrosFacturas();
             MostrarDetalleFactura();
+            
+            System.Data.DataTable dtVentas = Modelo.Entidades.DbFactura.CargarVentasParaFactura();
+            cbVentas.DataSource = dtVentas;
+            cbVentas.DisplayMember = "Display";
+            cbVentas.ValueMember = "IdVenta";
         }
         
 
@@ -80,7 +85,7 @@ namespace Vista.Facturación
     
         private void btnBuscarPedido_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtProductosCotizadosFacturados.Text, out int idVenta))
+            if (cbVentas.SelectedValue != null && int.TryParse(cbVentas.SelectedValue.ToString(), out int idVenta))
             {
                 // Buscar la venta
                 System.Data.DataTable dt = Modelo.Entidades.DbFactura.CargarDetalleFacturas(idVenta);
@@ -118,7 +123,7 @@ namespace Vista.Facturación
     
         private void btnGuardarFactura_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtProductosCotizadosFacturados.Text, out int idVenta))
+            if (cbVentas.SelectedValue != null && int.TryParse(cbVentas.SelectedValue.ToString(), out int idVenta))
             {
                 Modelo.Entidades.DbFactura nuevaFactura = new Modelo.Entidades.DbFactura(
                     0, 
@@ -134,7 +139,7 @@ namespace Vista.Facturación
                     MessageBox.Show("Factura guardada correctamente.");
                     // Limpiar UI
                     dgvDetalleFactura.DataSource = null;
-                    txtProductosCotizadosFacturados.Clear();
+                    // cbVentas.SelectedIndex = -1;
                     txtObservaciones.Clear();
                     textBox1.Clear();
                     txtSubTotal2.Clear();

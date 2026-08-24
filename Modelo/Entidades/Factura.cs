@@ -32,6 +32,17 @@ namespace Modelo.Entidades
         public int Venta1 { get => IdVenta; set => IdVenta = value; }
         public string Observaciones1 { get => Observaciones; set => Observaciones = value; }
 
+
+        public static DataTable CargarVentasParaFactura()
+        {
+            SqlConnection conectar = Conexion.Conectar();
+            string comando = "SELECT v.IdVenta, CAST(v.IdVenta AS VARCHAR) + ' - ' + c.Nombre_Cliente AS Display FROM Venta v INNER JOIN Clientes c ON v.IdCliente = c.IdCliente LEFT JOIN Factura f ON v.IdVenta = f.IdVenta WHERE f.IdFactura IS NULL;";
+            SqlDataAdapter adapter = new SqlDataAdapter(comando, conectar);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            return dt;
+        }
+
         public static DataTable CargarRegistrosFacturas()
         {
             SqlConnection conectar = Conexion.Conectar();

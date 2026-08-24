@@ -94,7 +94,7 @@ namespace Vista.Facturación
             this.btnBuscarPedido = new System.Windows.Forms.Button();
             this.lblDetalleProductosDeFactura = new System.Windows.Forms.Label();
             this.lblProductosFactura = new System.Windows.Forms.Label();
-            this.txtProductosCotizadosFacturados = new System.Windows.Forms.TextBox();
+            this.cbVentas = new System.Windows.Forms.ComboBox();
             this.pnlResumenDePagoFactura = new System.Windows.Forms.Panel();
             this.txtTotal2 = new System.Windows.Forms.TextBox();
             this.txtIVA2 = new System.Windows.Forms.TextBox();
@@ -816,7 +816,7 @@ namespace Vista.Facturación
             this.pnlDatalledeProductos.Controls.Add(this.btnBuscarPedido);
             this.pnlDatalledeProductos.Controls.Add(this.lblDetalleProductosDeFactura);
             this.pnlDatalledeProductos.Controls.Add(this.lblProductosFactura);
-            this.pnlDatalledeProductos.Controls.Add(this.txtProductosCotizadosFacturados);
+            this.pnlDatalledeProductos.Controls.Add(this.cbVentas);
             this.pnlDatalledeProductos.Controls.Add(this.pnlResumenDePagoFactura);
             this.pnlDatalledeProductos.Controls.Add(this.lblCantidad2);
             this.pnlDatalledeProductos.Location = new System.Drawing.Point(18, 212);
@@ -894,15 +894,15 @@ namespace Vista.Facturación
             this.lblProductosFactura.TabIndex = 3;
             this.lblProductosFactura.Text = "N° de Pedido:";
             // 
-            // txtProductosCotizadosFacturados
+            // cbVentas
             // 
-            this.txtProductosCotizadosFacturados.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProductosCotizadosFacturados.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.txtProductosCotizadosFacturados.Location = new System.Drawing.Point(118, 50);
-            this.txtProductosCotizadosFacturados.Margin = new System.Windows.Forms.Padding(2);
-            this.txtProductosCotizadosFacturados.Name = "txtProductosCotizadosFacturados";
-            this.txtProductosCotizadosFacturados.Size = new System.Drawing.Size(193, 19);
-            this.txtProductosCotizadosFacturados.TabIndex = 2;
+            this.cbVentas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbVentas.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.cbVentas.Location = new System.Drawing.Point(118, 50);
+            this.cbVentas.Margin = new System.Windows.Forms.Padding(2);
+            this.cbVentas.Name = "cbVentas";
+            this.cbVentas.Size = new System.Drawing.Size(200, 27);
+            this.cbVentas.TabIndex = 2;
             // 
             // pnlResumenDePagoFactura
             // 
@@ -1133,7 +1133,7 @@ namespace Vista.Facturación
         private System.Windows.Forms.Panel pnlDatalledeProductos;
         private System.Windows.Forms.Label lblDetalleProductosDeFactura;
         private System.Windows.Forms.Label lblProductosFactura;
-        private System.Windows.Forms.TextBox txtProductosCotizadosFacturados;
+        private System.Windows.Forms.ComboBox cbVentas;
         private System.Windows.Forms.Label lblCantidad2;
         private System.Windows.Forms.Button btnGuardarFactura;
         private System.Windows.Forms.Panel pnlVistaPreviaFactura;
