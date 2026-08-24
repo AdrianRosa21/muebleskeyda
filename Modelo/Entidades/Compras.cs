@@ -17,6 +17,8 @@ namespace Modelo.Entidades
         private decimal TotalCompra;
         private int IdProveedor;
 
+        public ComprasDb() { }
+
         public ComprasDb(int idCompra, DateTime fechaCompra, decimal totalCompra, int idProveedor)
         {
             IdCompra1=idCompra;

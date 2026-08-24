@@ -364,7 +364,7 @@ namespace Vista.Ventas
             if (res == DialogResult.Yes)
             {
                 Modelo.Entidades.DbVentas venta = new Modelo.Entidades.DbVentas();
-                venta.IdVenta = id;
+                venta.IdVenta1 = id;
                 if (venta.EliminarVenta())
                 {
                     MessageBox.Show("Venta eliminada correctamente.");
