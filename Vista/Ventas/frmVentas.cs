@@ -1,4 +1,4 @@
-using Modelo.Conexi√≥n_DB;
+using Modelo.ConexiÛn_DB;
 using Modelo.Entidades;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace Vista.Ventas
 {
     public partial class frmVentas : Form
     {
-        // Lista temporal donde se guardar√°n los productos
+        // Lista temporal donde se guardar·n los productos
         // antes de guardar la venta en la base de datos
         private List<DetalleVenta> detallesVenta = new List<DetalleVenta>();
 
@@ -157,7 +157,7 @@ namespace Vista.Ventas
        
             int idVenta = venta.InsertarVenta();
 
-            // Si devuelve 0 es porque ocurri√≥ un error
+            // Si devuelve 0 es porque ocurriÛ un error
             if (idVenta <= 0)
             {
                 MessageBox.Show(
@@ -179,7 +179,7 @@ namespace Vista.Ventas
                 if (!detalle.InsertarDetalleVenta())
                 {
                     MessageBox.Show(
-                        "La venta fue creada, pero ocurri√≥ un error "
+                        "La venta fue creada, pero ocurriÛ un error "
                         + "al guardar uno de los detalles.",
                         "Error",
                         MessageBoxButtons.OK,
@@ -349,10 +349,32 @@ namespace Vista.Ventas
             dgvDetalleDeVenta.DataSource =DetalleVenta.CargarDetalleVenta(idVenta);
         }
        
+    
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvVentas.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione una venta de la tabla.");
+                return;
+            }
+            
+            int id = Convert.ToInt32(dgvVentas.CurrentRow.Cells["IdVenta"].Value);
+            
+            DialogResult res = MessageBox.Show("øEst· seguro de eliminar esta venta? Se eliminar·n todos los detalles y facturas asociados de forma permanente.", "Confirmar EliminaciÛn (Cascada)", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                Modelo.Entidades.Ventas venta = new Modelo.Entidades.Ventas();
+                venta.IdVenta = id;
+                if (venta.EliminarVenta())
+                {
+                    MessageBox.Show("Venta eliminada correctamente.");
+                    MostrarVentas();
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
-
-
-
-   
-    }
-
+}

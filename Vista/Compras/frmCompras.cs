@@ -589,6 +589,32 @@ namespace Vista.Compras
             cbMaterial.Focus();
         }
     
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idCompraSeleccionada == 0)
+            {
+                MessageBox.Show("Seleccione una compra dando doble clic en la tabla inferior.");
+                return;
+            }
+            
+            DialogResult res = MessageBox.Show("¿Está seguro de eliminar esta compra permanentemente? Se eliminarán también sus detalles.", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                Modelo.Entidades.DbCompras compra = new Modelo.Entidades.DbCompras();
+                compra.IdCompra1 = idCompraSeleccionada;
+                if (compra.EliminarCompra())
+                {
+                    MessageBox.Show("Compra eliminada correctamente.");
+                    MostrarRegistros();
+                    idCompraSeleccionada = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar la compra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 
 }
