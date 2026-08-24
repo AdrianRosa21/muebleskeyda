@@ -380,7 +380,7 @@ namespace Vista.Cotizaciones
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCotizacionesRegistradas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvCotizacionesRegistradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCotizacionesRegistradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCotizacionesRegistradas.Location = new System.Drawing.Point(10, 8);
             this.dgvCotizacionesRegistradas.Name = "dgvCotizacionesRegistradas";
             this.dgvCotizacionesRegistradas.ReadOnly = true;
@@ -653,7 +653,7 @@ namespace Vista.Cotizaciones
             // dgvDetalleDeCotizacion
             // 
             this.dgvDetalleDeCotizacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDetalleDeCotizacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleDeCotizacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetalleDeCotizacion.Location = new System.Drawing.Point(26, 127);
             this.dgvDetalleDeCotizacion.Name = "dgvDetalleDeCotizacion";
             this.dgvDetalleDeCotizacion.Size = new System.Drawing.Size(723, 63);

@@ -470,7 +470,7 @@
             // dgvPedidosRecientes
             // 
             this.dgvPedidosRecientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPedidosRecientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidosRecientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvPedidosRecientes.Location = new System.Drawing.Point(16, 41);
             this.dgvPedidosRecientes.Name = "dgvPedidosRecientes";
             this.dgvPedidosRecientes.Size = new System.Drawing.Size(637, 281);

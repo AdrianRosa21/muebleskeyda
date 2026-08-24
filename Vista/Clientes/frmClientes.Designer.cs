@@ -770,7 +770,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvClientesIndividuales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvClientesIndividuales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientesIndividuales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClientesIndividuales.Location = new System.Drawing.Point(21, 17);
             this.dgvClientesIndividuales.Margin = new System.Windows.Forms.Padding(4);
             this.dgvClientesIndividuales.Name = "dgvClientesIndividuales";
@@ -802,7 +802,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvClientesCorporativos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvClientesCorporativos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientesCorporativos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClientesCorporativos.Location = new System.Drawing.Point(21, 17);
             this.dgvClientesCorporativos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvClientesCorporativos.Name = "dgvClientesCorporativos";

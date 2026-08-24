@@ -323,7 +323,7 @@
             // dgvInventario
             // 
             this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvInventario.Location = new System.Drawing.Point(12, 10);
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.ReadOnly = true;

@@ -448,7 +448,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvVentas.Location = new System.Drawing.Point(14, 30);
             this.dgvVentas.Name = "dgvVentas";
             this.dgvVentas.Size = new System.Drawing.Size(741, 269);
@@ -477,7 +477,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetalleDeVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDetalleDeVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleDeVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetalleDeVenta.Location = new System.Drawing.Point(14, 37);
             this.dgvDetalleDeVenta.Name = "dgvDetalleDeVenta";
             this.dgvDetalleDeVenta.Size = new System.Drawing.Size(741, 122);

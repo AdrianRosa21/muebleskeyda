@@ -355,7 +355,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProducción.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProducción.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducción.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProducción.Location = new System.Drawing.Point(17, 14);
             this.dgvProducción.Name = "dgvProducción";
             this.dgvProducción.ReadOnly = true;

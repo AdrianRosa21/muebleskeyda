@@ -493,7 +493,7 @@
             // 
             // dgvReporteVentas
             // 
-            this.dgvReporteVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReporteVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvReporteVentas.Location = new System.Drawing.Point(10, 35);
             this.dgvReporteVentas.Name = "dgvReporteVentas";
             this.dgvReporteVentas.Size = new System.Drawing.Size(930, 258);

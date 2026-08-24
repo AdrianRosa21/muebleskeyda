@@ -198,7 +198,7 @@ namespace Vista.Producción
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProduccion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProduccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProduccion.Location = new System.Drawing.Point(19, 12);
             this.dgvProduccion.Name = "dgvProduccion";
             this.dgvProduccion.ReadOnly = true;

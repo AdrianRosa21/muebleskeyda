@@ -164,7 +164,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCategorias.Location = new System.Drawing.Point(19, 21);
             this.dgvCategorias.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCategorias.Name = "dgvCategorias";

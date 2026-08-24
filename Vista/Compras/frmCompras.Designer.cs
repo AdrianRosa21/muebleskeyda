@@ -127,7 +127,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvHistorialCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvHistorialCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHistorialCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvHistorialCompras.Location = new System.Drawing.Point(8, 55);
             this.dgvHistorialCompras.Name = "dgvHistorialCompras";
             this.dgvHistorialCompras.ReadOnly = true;
@@ -445,7 +445,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetalleCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvDetalleCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetalleCompras.Location = new System.Drawing.Point(8, 55);
             this.dgvDetalleCompras.Name = "dgvDetalleCompras";
             this.dgvDetalleCompras.ReadOnly = true;
