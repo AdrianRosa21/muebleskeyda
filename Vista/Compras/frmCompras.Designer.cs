@@ -394,8 +394,10 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(117, 30);
             this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Text = "Eliminar Compra";
+            this.btnCancelar.BackColor = System.Drawing.Color.LightCoral;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // lblTotalCompra
             // 

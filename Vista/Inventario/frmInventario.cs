@@ -1,4 +1,4 @@
-using Modelo.ConexiÃ³n_DB;
+using Modelo.Conexión_DB;
 using Modelo.Entidades;
 using System;
 using System.Collections.Generic;

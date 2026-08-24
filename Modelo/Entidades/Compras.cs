@@ -76,5 +76,45 @@ namespace Modelo.Entidades
 
             }
         }
+
+        public bool EliminarCompra()
+        {
+            using (SqlConnection conexion = Conexion.Conectar())
+            {
+                SqlTransaction transaccion = conexion.BeginTransaction();
+                try
+                {
+                    string cmdDetalle = "DELETE FROM DetalleCompraMaterial WHERE IdCompra = @IdCompra;";
+                    using (SqlCommand cmd = new SqlCommand(cmdDetalle, conexion, transaccion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdCompra", IdCompra1);
+                        cmd.ExecuteNonQuery();
+                    }
+                    
+                    string cmdCompra = "DELETE FROM Compras WHERE IdCompra = @IdCompra;";
+                    using (SqlCommand cmd = new SqlCommand(cmdCompra, conexion, transaccion))
+                    {
+                        cmd.Parameters.AddWithValue("@IdCompra", IdCompra1);
+                        int filas = cmd.ExecuteNonQuery();
+                        
+                        if (filas > 0)
+                        {
+                            transaccion.Commit();
+                            return true;
+                        }
+                        else
+                        {
+                            transaccion.Rollback();
+                            return false;
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    transaccion.Rollback();
+                    return false;
+                }
+            }
+        }
     }
 }

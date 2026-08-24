@@ -98,5 +98,88 @@ namespace Vista.Proveedores
 
             }
         }
+
+        private int idProveedorSeleccionado = 0;
+        
+        private void dgvProveedor_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvProveedor.Rows[e.RowIndex];
+                idProveedorSeleccionado = Convert.ToInt32(fila.Cells["IdProveedor"].Value);
+                txtNombreProveedor.Text = fila.Cells["Nombre_Proveedor"].Value.ToString();
+                txtTelefono.Text = fila.Cells["Telefono"].Value.ToString();
+                txtCorreo.Text = fila.Cells["Correo"].Value.ToString();
+                txtUbicacion.Text = fila.Cells["Ubicacion"].Value.ToString();
+                
+                btnEditar.Visible = true;
+                btnGuardar.Visible = false;
+            }
+        }
+        
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (idProveedorSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione un proveedor para editar.");
+                return;
+            }
+            
+            DbProveedor proveedor = new DbProveedor();
+            proveedor.IdProveedor1 = idProveedorSeleccionado;
+            proveedor.Nombre_Proveedor1 = txtNombreProveedor.Text.Trim();
+            proveedor.Telefono1 = txtTelefono.Text.Trim();
+            proveedor.Correo1 = txtCorreo.Text.Trim();
+            proveedor.Ubicación1 = txtUbicacion.Text.Trim();
+            
+            if (proveedor.ActualizarProveedor())
+            {
+                MessageBox.Show("Proveedor actualizado correctamente.");
+                MostrarProveedor();
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Error al actualizar el proveedor.");
+            }
+        }
+        
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idProveedorSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione un proveedor para eliminar.");
+                return;
+            }
+            
+            DialogResult res = MessageBox.Show("¿Está seguro de eliminar este proveedor?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                DbProveedor proveedor = new DbProveedor();
+                proveedor.IdProveedor1 = idProveedorSeleccionado;
+                
+                if (proveedor.EliminarProveedor())
+                {
+                    MessageBox.Show("Proveedor eliminado correctamente.");
+                    MostrarProveedor();
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("No se puede eliminar el proveedor porque tiene registros asociados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        
+        private void Limpiar()
+        {
+            txtNombreProveedor.Clear();
+            txtTelefono.Clear();
+            txtCorreo.Clear();
+            txtUbicacion.Clear();
+            idProveedorSeleccionado = 0;
+            btnEditar.Visible = false;
+            btnGuardar.Visible = true;
+        }
     }
 }
