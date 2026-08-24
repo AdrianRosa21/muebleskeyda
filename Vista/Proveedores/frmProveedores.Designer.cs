@@ -113,6 +113,7 @@
             this.dgvProveedor.ReadOnly = true;
             this.dgvProveedor.Size = new System.Drawing.Size(739, 433);
             this.dgvProveedor.TabIndex = 0;
+            this.dgvProveedor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedor_CellDoubleClick);
             // 
             // btnEliminar
             // 
