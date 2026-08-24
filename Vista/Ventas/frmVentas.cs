@@ -363,7 +363,7 @@ namespace Vista.Ventas
             DialogResult res = MessageBox.Show("¿Está seguro de eliminar esta venta? Se eliminarán todos los detalles y facturas asociados de forma permanente.", "Confirmar Eliminación (Cascada)", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
-                Modelo.Entidades.Ventas venta = new Modelo.Entidades.Ventas();
+                Modelo.Entidades.DbVentas venta = new Modelo.Entidades.DbVentas();
                 venta.IdVenta = id;
                 if (venta.EliminarVenta())
                 {

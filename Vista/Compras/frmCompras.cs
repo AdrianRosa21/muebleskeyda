@@ -601,12 +601,12 @@ namespace Vista.Compras
             DialogResult res = MessageBox.Show("¿Está seguro de eliminar esta compra permanentemente? Se eliminarán también sus detalles.", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (res == DialogResult.Yes)
             {
-                Modelo.Entidades.DbCompras compra = new Modelo.Entidades.DbCompras();
+                Modelo.Entidades.ComprasDb compra = new Modelo.Entidades.ComprasDb();
                 compra.IdCompra1 = idCompraSeleccionada;
                 if (compra.EliminarCompra())
                 {
                     MessageBox.Show("Compra eliminada correctamente.");
-                    MostrarRegistros();
+                    MostrarCompras();
                     idCompraSeleccionada = 0;
                 }
                 else
