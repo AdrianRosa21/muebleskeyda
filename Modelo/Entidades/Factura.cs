@@ -36,7 +36,7 @@ namespace Modelo.Entidades
         public static DataTable CargarVentasParaFactura()
         {
             SqlConnection conectar = Conexion.Conectar();
-            string comando = "SELECT v.IdVenta, CAST(v.IdVenta AS VARCHAR) + ' - ' + c.Nombre_Cliente AS Display FROM Venta v INNER JOIN Clientes c ON v.IdCliente = c.IdCliente LEFT JOIN Factura f ON v.IdVenta = f.IdVenta WHERE f.IdFactura IS NULL;";
+            string comando = "SELECT v.IdVenta, CAST(v.IdVenta AS VARCHAR) + ' - ' + c.Identificador1 + ' ' + ISNULL(c.Identificador2, '') AS Display FROM Venta v INNER JOIN Cliente c ON v.IdCliente = c.IdCliente LEFT JOIN Factura f ON v.IdVenta = f.IdVenta WHERE f.IdFactura IS NULL;";
             SqlDataAdapter adapter = new SqlDataAdapter(comando, conectar);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
