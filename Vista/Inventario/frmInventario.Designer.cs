@@ -161,7 +161,12 @@
             this.cbUnidadMedida.Items.AddRange(new object[] {
             "Centimetros",
             "Metros",
-            "Pliegos"});
+            "Pliegos",
+            "Piezas",
+            "Pulgadas",
+            "Litros",
+            "Galones",
+            "Libras"});
             this.cbUnidadMedida.Location = new System.Drawing.Point(23, 274);
             this.cbUnidadMedida.Margin = new System.Windows.Forms.Padding(2);
             this.cbUnidadMedida.Name = "cbUnidadMedida";
