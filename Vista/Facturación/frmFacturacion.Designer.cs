@@ -379,6 +379,7 @@ namespace Vista.Facturación
             this.button1.Text = "Convertir en pedido";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             // 
             // dgvCotizacionesRegistradas
             // 

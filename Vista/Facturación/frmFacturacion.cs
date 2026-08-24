@@ -137,6 +137,11 @@ namespace Vista.Facturación
                 {
                     nuevaFactura.InsertarFactura();
                     MessageBox.Show("Factura guardada correctamente.");
+                    MostrarRegistrosFacturas();
+                    System.Data.DataTable dtVentas = Modelo.Entidades.DbFactura.CargarVentasParaFactura();
+                    cbVentas.DataSource = dtVentas;
+                    cbVentas.DisplayMember = "Display";
+                    cbVentas.ValueMember = "IdVenta";
                     // Limpiar UI
                     dgvDetalleFactura.DataSource = null;
                     // cbVentas.SelectedIndex = -1;

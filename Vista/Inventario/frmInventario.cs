@@ -59,6 +59,36 @@ namespace Vista.Inventario
             cbCategorias.SelectedIndex = -1;
         }
 
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idMaterialSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione un material primero.");
+                return;
+            }
+            DialogResult resultado = MessageBox.Show("¿Está seguro de eliminar este material?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resultado == DialogResult.Yes)
+            {
+                Material material = new Material();
+                material.idMaterial1 = idMaterialSeleccionado;
+                if (material.EliminarMaterial())
+                {
+                    MessageBox.Show("Material eliminado correctamente.");
+                    MostrarInventario();
+                    
+                    idMaterialSeleccionado = 0;
+                    txtMaterial.Clear();
+                    txtCantidad.Clear();
+                    cbUnidadMedida.SelectedIndex = -1;
+                    cbCategorias.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("No se puede eliminar el material porque está siendo utilizado en producciones.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             //INSERT
@@ -101,9 +131,9 @@ namespace Vista.Inventario
         private void BloquearCampos()
         {
             txtMaterial.ReadOnly = true;
-            cbUnidadMedida.Enabled = true;
-            cbCategorias.Enabled = true;
-            txtCantidad.ReadOnly=true;
+            cbUnidadMedida.Enabled = false;
+            cbCategorias.Enabled = false;
+            txtCantidad.ReadOnly = true;
 
             btnEditar.Visible = true;
             btnGuardar.Visible = false;
@@ -114,9 +144,9 @@ namespace Vista.Inventario
         private void HabilitarCampos()
         {
             txtMaterial.ReadOnly = false;
-            cbUnidadMedida.Enabled = false;
-            cbCategorias.Enabled = false;
-            txtCantidad.ReadOnly=false;
+            cbUnidadMedida.Enabled = true;
+            cbCategorias.Enabled = true;
+            txtCantidad.ReadOnly = false;
 
             btnEditar.Visible = true;
             btnGuardar.Visible = false;

@@ -91,6 +91,22 @@ namespace Modelo.Entidades
 
         }
 
+
+        public bool EliminarMaterial()
+        {
+            SqlConnection conectar = Conexion.Conectar();
+            string comando = "DELETE FROM Material WHERE IdMaterial = @IdMaterial;";
+            SqlCommand cmd = new SqlCommand(comando, conectar);
+            cmd.Parameters.AddWithValue("@IdMaterial", idMaterial1);
+            
+            try {
+                return cmd.ExecuteNonQuery() > 0;
+            } catch (Exception) {
+                return false;
+            } finally {
+                conectar.Close();
+            }
+        }
         public bool ActualizarMaterial()
         {
             string comandoSQL = "UPDATE Material SET NombreDelMaterial = @NombreDelMaterial, IdUnidadDeMedida = @IdUnidad, Categoria = (SELECT TOP 1 IdCategoria FROM Categoria WHERE Nombre_Categoria = @Categoria) WHERE IdMaterial = @IdMaterial;";
