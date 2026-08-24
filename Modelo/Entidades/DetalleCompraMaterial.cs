@@ -43,7 +43,7 @@ namespace Modelo.Entidades
         public static DataTable CargarDetallesPorCompra(int idCompra)
         {
             string comandoSQL = @"
-        SELECT d.IdDetalleCompraMaterial, d.IdCompra, m.NombreDelMaterial as Material, d.Cantidad, d.PrecioUnitario
+        SELECT d.IdDetalleCompraMaterial, d.IdCompra, d.IdMaterial, m.NombreDelMaterial as Material, d.Cantidad, d.PrecioUnitario
         FROM DetalleCompraMaterial d
         INNER JOIN Material m ON d.IdMaterial = m.IdMaterial
         WHERE d.IdCompra = @IdCompra;

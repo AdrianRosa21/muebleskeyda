@@ -200,7 +200,10 @@ namespace Vista.Inventario
 
             txtMaterial.Text =fila.Cells["Material"].Value?.ToString() ?? "";
 
-            string idUnidadStr = fila.Cells["IdUnidadDeMedida"].Value?.ToString();
+            string idUnidadStr = "";
+            if (dgvMateriales.Columns.Contains("IdUnidadDeMedida")) idUnidadStr = fila.Cells["IdUnidadDeMedida"].Value?.ToString();
+            else if (dgvMateriales.Columns.Contains("UnidadDeMedida")) idUnidadStr = fila.Cells["UnidadDeMedida"].Value?.ToString();
+            else if (dgvMateriales.Columns.Contains("Unidad_De_Medida")) idUnidadStr = fila.Cells["Unidad_De_Medida"].Value?.ToString();
             string unidadTexto = "";
             if (idUnidadStr == "1") unidadTexto = "Centimetros";
             else if (idUnidadStr == "2") unidadTexto = "Metros";
