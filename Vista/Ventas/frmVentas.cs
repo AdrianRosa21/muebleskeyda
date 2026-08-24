@@ -72,11 +72,23 @@ namespace Vista.Ventas
             DataGridViewRow row = dgvVentas.Rows[e.RowIndex];
             idVentaSeleccionada = Convert.ToInt32(row.Cells["IdVenta"].Value);
             
-            cbCliente.Text = row.Cells["Cliente"]?.Value?.ToString() ?? "";
-            cbMetodoPago.Text = row.Cells["MetodoDePago"]?.Value?.ToString() ?? "";
             
-            if (row.Cells["FechaVenta"]?.Value != DBNull.Value)
-                dtFechaVenta.Value = Convert.ToDateTime(row.Cells["FechaVenta"].Value);
+            // Buscar los nombres exactos de las columnas en el grid
+            string colCliente = "";
+            string colMetodo = "";
+            string colFecha = "";
+            foreach (DataGridViewColumn col in dgvVentas.Columns)
+            {
+                if (col.Name.Contains("Cliente")) colCliente = col.Name;
+                if (col.Name.Contains("Metodo") || col.Name.Contains("Pago")) colMetodo = col.Name;
+                if (col.Name.Contains("Fecha")) colFecha = col.Name;
+            }
+
+            if (!string.IsNullOrEmpty(colCliente)) cbCliente.Text = row.Cells[colCliente]?.Value?.ToString() ?? "";
+            if (!string.IsNullOrEmpty(colMetodo)) cbMetodoPago.Text = row.Cells[colMetodo]?.Value?.ToString() ?? "";
+            
+            if (!string.IsNullOrEmpty(colFecha) && row.Cells[colFecha]?.Value != DBNull.Value)
+                dtFechaVenta.Value = Convert.ToDateTime(row.Cells[colFecha].Value);
                 
             txtSubTotal.Text = row.Cells["SubTotal"]?.Value?.ToString() ?? "0";
             btnEditar.Visible = true;
