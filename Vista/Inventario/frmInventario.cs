@@ -158,7 +158,7 @@ namespace Vista.Inventario
         {
             if (idMaterialSeleccionado == 0)
             {
-                MessageBox.Show("No hay ningún material seleccionado.");
+                MessageBox.Show("No hay ningun material seleccionado.");
                 return;
             }
 

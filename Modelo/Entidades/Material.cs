@@ -59,6 +59,7 @@ namespace Modelo.Entidades
                     // A gregan los parametros
                     comandoObjeto.Parameters.AddWithValue("@NombreDelMaterial",NombreDelMaterial1);
                     comandoObjeto.Parameters.AddWithValue("@IdUnidad", ObtenerIdUnidadDeMedida(UnidadDeMedida1));
+                    comandoObjeto.Parameters.AddWithValue("@Stock", Stock1);
                     comandoObjeto.Parameters.AddWithValue("@Stock",Stock1);
                     comandoObjeto.Parameters.AddWithValue("@Categoria",Categoria);
                     try
@@ -109,7 +110,7 @@ namespace Modelo.Entidades
         }
         public bool ActualizarMaterial()
         {
-            string comandoSQL = "UPDATE Material SET NombreDelMaterial = @NombreDelMaterial, IdUnidadDeMedida = @IdUnidad, Categoria = (SELECT TOP 1 IdCategoria FROM Categoria WHERE Nombre_Categoria = @Categoria) WHERE IdMaterial = @IdMaterial;";
+            string comandoSQL = "UPDATE Material SET NombreDelMaterial = @NombreDelMaterial, IdUnidadDeMedida = @IdUnidad, Stock = @Stock, Categoria = (SELECT TOP 1 IdCategoria FROM Categoria WHERE Nombre_Categoria = @Categoria) WHERE IdMaterial = @IdMaterial;";
 
             using (SqlConnection conexion = Conexion.Conectar())
             {
@@ -118,6 +119,7 @@ namespace Modelo.Entidades
                     comandoObjeto.Parameters.AddWithValue("@IdMaterial", idMaterial1);
                     comandoObjeto.Parameters.AddWithValue("@NombreDelMaterial", NombreDelMaterial1);
                     comandoObjeto.Parameters.AddWithValue("@IdUnidad", ObtenerIdUnidadDeMedida(UnidadDeMedida1));
+                    comandoObjeto.Parameters.AddWithValue("@Stock", Stock1);
                     comandoObjeto.Parameters.AddWithValue("@Categoria", Categoria);
 
                     try
@@ -185,7 +187,7 @@ namespace Modelo.Entidades
         {
             if (nombreUnidad == "Centimetros") return 1;
             if (nombreUnidad == "Metros") return 2;
-            if (nombreUnidad == "Piezas") return 3;
+            if (nombreUnidad == "Piezas" || nombreUnidad == "Pliegos") return 3;
             if (nombreUnidad == "Pulgadas") return 4;
             if (nombreUnidad == "Litros") return 5;
             if (nombreUnidad == "Galones") return 6;
