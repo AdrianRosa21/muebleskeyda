@@ -34,7 +34,7 @@ namespace Modelo.Entidades
         public string Nombre_Proveedor1 { get => Nombre_Proveedor; set => Nombre_Proveedor = value; }
         public string Telefono1 { get => Telefono; set => Telefono = value; }
         public string Correo1 { get => Correo; set => Correo = value; }
-        public string Ubicación1 { get => Ubicacion; set => Ubicacion = value; }
+        public string Ubicacion1 { get => Ubicacion; set => Ubicacion = value; }
 
         public static DataTable CargarProveedor()
         {
@@ -98,23 +98,7 @@ namespace Modelo.Entidades
                 }
             }
         }
-        public bool ActualizarProveedor()
-        {
-            string comandoSQL = "UPDATE Proveedor SET Nombre_Proveedor = @Nombre, Telefono = @Telefono, Correo = @Correo WHERE IdProveedor = @IdProveedor";
-            using (SqlConnection conexion = Conexion.Conectar())
-            {
-                using (SqlCommand comandoObjeto = new SqlCommand(comandoSQL, conexion))
-                {
-                    comandoObjeto.Parameters.AddWithValue("@Nombre", Nombre_Proveedor);
-                    comandoObjeto.Parameters.AddWithValue("@Telefono", Telefono);
-                    comandoObjeto.Parameters.AddWithValue("@Correo", Correo);
-                    comandoObjeto.Parameters.AddWithValue("@IdProveedor", IdProveedor);
-                    
-                    try { return comandoObjeto.ExecuteNonQuery() > 0; }
-                    catch (SqlException) { return false; }
-                }
-            }
-        }
+
 
         public static bool EliminarProveedor(int idProveedor)
         {
@@ -141,7 +125,7 @@ namespace Modelo.Entidades
                     cmd.Parameters.AddWithValue("@Nombre", Nombre_Proveedor1);
                     cmd.Parameters.AddWithValue("@Telefono", Telefono1);
                     cmd.Parameters.AddWithValue("@Correo", Correo1);
-                    cmd.Parameters.AddWithValue("@Ubicacion", Ubicación1);
+                    cmd.Parameters.AddWithValue("@Ubicacion", Ubicacion1);
                     try
                     {
                         return cmd.ExecuteNonQuery() > 0;

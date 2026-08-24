@@ -75,7 +75,7 @@ namespace Vista.Proveedores
             proveedor.Nombre_Proveedor1 = txtNombreProveedor.Text.Trim();
             proveedor.Telefono1 = txtTelefono.Text.Trim();
             proveedor.Correo1 = txtCorreo.Text.Trim();
-            proveedor.UbicaciÃ³n1 = txtUbicacion.Text.Trim();
+            proveedor.Ubicacion1 = txtUbicacion.Text.Trim();
 
             if (proveedor.InsertarProveedor())
             {
@@ -130,7 +130,7 @@ namespace Vista.Proveedores
             proveedor.Nombre_Proveedor1 = txtNombreProveedor.Text.Trim();
             proveedor.Telefono1 = txtTelefono.Text.Trim();
             proveedor.Correo1 = txtCorreo.Text.Trim();
-            proveedor.Ubicación1 = txtUbicacion.Text.Trim();
+            proveedor.Ubicacion1 = txtUbicacion.Text.Trim();
             
             if (proveedor.ActualizarProveedor())
             {
