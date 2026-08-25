@@ -140,6 +140,7 @@
             this.dgvClientesCorporativos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvClientesCorporativos.Location = new System.Drawing.Point(16, 14);
             this.dgvClientesCorporativos.Name = "dgvClientesCorporativos";
+            this.dgvClientesCorporativos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientesCorporativos.Size = new System.Drawing.Size(793, 365);
             this.dgvClientesCorporativos.TabIndex = 0;
             this.dgvClientesCorporativos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientesCorporativos_CellDoubleClick);
@@ -362,6 +363,7 @@
             this.dgvClientesIndividuales.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvClientesIndividuales.Location = new System.Drawing.Point(16, 14);
             this.dgvClientesIndividuales.Name = "dgvClientesIndividuales";
+            this.dgvClientesIndividuales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientesIndividuales.Size = new System.Drawing.Size(791, 368);
             this.dgvClientesIndividuales.TabIndex = 0;
             this.dgvClientesIndividuales.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientesIndividuales_CellContentClick);

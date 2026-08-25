@@ -781,6 +781,7 @@
             this.dgvClientesIndividuales.Name = "dgvClientesIndividuales";
             this.dgvClientesIndividuales.ReadOnly = true;
             this.dgvClientesIndividuales.RowHeadersWidth = 51;
+            this.dgvClientesIndividuales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientesIndividuales.Size = new System.Drawing.Size(791, 368);
             this.dgvClientesIndividuales.TabIndex = 0;
             this.dgvClientesIndividuales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientesIndividuales_CellClick);
@@ -812,6 +813,7 @@
             this.dgvClientesCorporativos.Name = "dgvClientesCorporativos";
             this.dgvClientesCorporativos.ReadOnly = true;
             this.dgvClientesCorporativos.RowHeadersWidth = 51;
+            this.dgvClientesCorporativos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvClientesCorporativos.Size = new System.Drawing.Size(793, 365);
             this.dgvClientesCorporativos.TabIndex = 0;
             this.dgvClientesCorporativos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientesCorporativos_CellClick);

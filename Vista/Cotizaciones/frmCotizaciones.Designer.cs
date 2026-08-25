@@ -348,6 +348,7 @@ namespace Vista.Cotizaciones
             this.pnlContenedorTabla.Location = new System.Drawing.Point(25, 90);
             this.pnlContenedorTabla.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedorTabla.Name = "pnlContenedorTabla";
+            this.pnlContenedorTabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorTabla.Size = new System.Drawing.Size(1066, 406);
             this.pnlContenedorTabla.TabIndex = 3;
             // 
@@ -384,6 +385,7 @@ namespace Vista.Cotizaciones
             this.dgvCotizacionesRegistradas.Location = new System.Drawing.Point(10, 8);
             this.dgvCotizacionesRegistradas.Name = "dgvCotizacionesRegistradas";
             this.dgvCotizacionesRegistradas.ReadOnly = true;
+            this.dgvCotizacionesRegistradas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCotizacionesRegistradas.Size = new System.Drawing.Size(744, 386);
             this.dgvCotizacionesRegistradas.TabIndex = 34;
             // 
@@ -656,6 +658,7 @@ namespace Vista.Cotizaciones
             this.dgvDetalleDeCotizacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetalleDeCotizacion.Location = new System.Drawing.Point(26, 127);
             this.dgvDetalleDeCotizacion.Name = "dgvDetalleDeCotizacion";
+            this.dgvDetalleDeCotizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetalleDeCotizacion.Size = new System.Drawing.Size(723, 63);
             this.dgvDetalleDeCotizacion.TabIndex = 19;
             this.dgvDetalleDeCotizacion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleDeCotizacion_CellContentClick);

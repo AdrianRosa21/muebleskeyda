@@ -250,6 +250,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(-1, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Size = new System.Drawing.Size(1102, 627);
             this.pnlHeader.TabIndex = 0;
             // 
@@ -319,6 +320,7 @@
             this.dgvReporteClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReporteClientes.Location = new System.Drawing.Point(10, 35);
             this.dgvReporteClientes.Name = "dgvReporteClientes";
+            this.dgvReporteClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReporteClientes.Size = new System.Drawing.Size(915, 259);
             this.dgvReporteClientes.TabIndex = 0;
             // 
@@ -496,6 +498,7 @@
             this.dgvReporteVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvReporteVentas.Location = new System.Drawing.Point(10, 35);
             this.dgvReporteVentas.Name = "dgvReporteVentas";
+            this.dgvReporteVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReporteVentas.Size = new System.Drawing.Size(930, 258);
             this.dgvReporteVentas.TabIndex = 1;
             // 

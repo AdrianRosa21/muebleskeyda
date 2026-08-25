@@ -170,6 +170,7 @@
             this.dgvCategorias.Name = "dgvCategorias";
             this.dgvCategorias.ReadOnly = true;
             this.dgvCategorias.RowHeadersWidth = 51;
+            this.dgvCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCategorias.Size = new System.Drawing.Size(977, 458);
             this.dgvCategorias.TabIndex = 0;
             this.dgvCategorias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorias_CellClick);
@@ -335,6 +336,7 @@
             this.pnlPedidaDeDatos.Location = new System.Drawing.Point(51, 132);
             this.pnlPedidaDeDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPedidaDeDatos.Name = "pnlPedidaDeDatos";
+            this.pnlPedidaDeDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidaDeDatos.Size = new System.Drawing.Size(313, 496);
             this.pnlPedidaDeDatos.TabIndex = 2;
             // 

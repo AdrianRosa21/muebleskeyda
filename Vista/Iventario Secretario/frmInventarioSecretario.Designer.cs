@@ -331,6 +331,7 @@
             this.dgvMateriales.Location = new System.Drawing.Point(12, 10);
             this.dgvMateriales.Name = "dgvMateriales";
             this.dgvMateriales.ReadOnly = true;
+            this.dgvMateriales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMateriales.Size = new System.Drawing.Size(799, 366);
             this.dgvMateriales.TabIndex = 1;
             this.dgvMateriales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellDoubleClick);
@@ -465,6 +466,7 @@
             this.pnlPedidaDeDatos.Location = new System.Drawing.Point(11, 104);
             this.pnlPedidaDeDatos.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPedidaDeDatos.Name = "pnlPedidaDeDatos";
+            this.pnlPedidaDeDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidaDeDatos.Size = new System.Drawing.Size(233, 456);
             this.pnlPedidaDeDatos.TabIndex = 2;
             // 
@@ -496,6 +498,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(1, 1);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Size = new System.Drawing.Size(1102, 627);
             this.pnlHeader.TabIndex = 0;
             // 

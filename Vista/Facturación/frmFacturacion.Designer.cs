@@ -343,6 +343,7 @@ namespace Vista.Facturación
             this.pnlContenedorTabla.Location = new System.Drawing.Point(24, 77);
             this.pnlContenedorTabla.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedorTabla.Name = "pnlContenedorTabla";
+            this.pnlContenedorTabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorTabla.Size = new System.Drawing.Size(1047, 406);
             this.pnlContenedorTabla.TabIndex = 3;
             // 
@@ -404,6 +405,7 @@ namespace Vista.Facturación
             this.dgvCotizacionesRegistradas.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCotizacionesRegistradas.Location = new System.Drawing.Point(10, 11);
             this.dgvCotizacionesRegistradas.Name = "dgvCotizacionesRegistradas";
+            this.dgvCotizacionesRegistradas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCotizacionesRegistradas.Size = new System.Drawing.Size(1026, 268);
             this.dgvCotizacionesRegistradas.TabIndex = 34;
             // 
@@ -848,6 +850,7 @@ namespace Vista.Facturación
             this.dgvDetalleFactura.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetalleFactura.Location = new System.Drawing.Point(13, 130);
             this.dgvDetalleFactura.Name = "dgvDetalleFactura";
+            this.dgvDetalleFactura.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetalleFactura.Size = new System.Drawing.Size(787, 124);
             this.dgvDetalleFactura.TabIndex = 32;
             // 

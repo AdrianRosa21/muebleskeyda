@@ -290,6 +290,7 @@
             this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCategorias.Location = new System.Drawing.Point(18, 14);
             this.dgvCategorias.Name = "dgvCategorias";
+            this.dgvCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCategorias.Size = new System.Drawing.Size(1008, 372);
             this.dgvCategorias.TabIndex = 0;
             // 

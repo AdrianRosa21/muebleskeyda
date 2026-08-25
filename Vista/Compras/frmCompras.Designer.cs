@@ -131,6 +131,7 @@
             this.dgvHistorialCompras.Location = new System.Drawing.Point(8, 55);
             this.dgvHistorialCompras.Name = "dgvHistorialCompras";
             this.dgvHistorialCompras.ReadOnly = true;
+            this.dgvHistorialCompras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvHistorialCompras.Size = new System.Drawing.Size(754, 163);
             this.dgvHistorialCompras.TabIndex = 0;
             this.dgvHistorialCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorialCompras_CellDoubleClick);
@@ -180,6 +181,7 @@
             this.pnlPedidaDeDatos.Location = new System.Drawing.Point(15, 116);
             this.pnlPedidaDeDatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPedidaDeDatos.Name = "pnlPedidaDeDatos";
+            this.pnlPedidaDeDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidaDeDatos.Size = new System.Drawing.Size(259, 441);
             this.pnlPedidaDeDatos.TabIndex = 2;
             // 
@@ -449,6 +451,7 @@
             this.dgvDetalleCompras.Location = new System.Drawing.Point(8, 55);
             this.dgvDetalleCompras.Name = "dgvDetalleCompras";
             this.dgvDetalleCompras.ReadOnly = true;
+            this.dgvDetalleCompras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetalleCompras.Size = new System.Drawing.Size(754, 153);
             this.dgvDetalleCompras.TabIndex = 0;
             this.dgvDetalleCompras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCompras_CellDoubleClick);

@@ -90,6 +90,7 @@
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Size = new System.Drawing.Size(1102, 627);
             this.pnlHeader.TabIndex = 1;
             // 
@@ -176,6 +177,7 @@
             this.pnlPedidaDeDatos.Location = new System.Drawing.Point(833, 107);
             this.pnlPedidaDeDatos.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPedidaDeDatos.Name = "pnlPedidaDeDatos";
+            this.pnlPedidaDeDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidaDeDatos.Size = new System.Drawing.Size(241, 399);
             this.pnlPedidaDeDatos.TabIndex = 2;
             // 
@@ -435,6 +437,7 @@
             this.pnlTablaContenido.Location = new System.Drawing.Point(37, 102);
             this.pnlTablaContenido.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTablaContenido.Name = "pnlTablaContenido";
+            this.pnlTablaContenido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTablaContenido.Size = new System.Drawing.Size(766, 317);
             this.pnlTablaContenido.TabIndex = 3;
             // 
@@ -452,6 +455,7 @@
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvVentas.Location = new System.Drawing.Point(14, 30);
             this.dgvVentas.Name = "dgvVentas";
+            this.dgvVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVentas.Size = new System.Drawing.Size(741, 269);
             this.dgvVentas.TabIndex = 0;
             this.dgvVentas.SelectionChanged += new System.EventHandler(this.dgvVentas_SelectionChanged);
@@ -482,6 +486,7 @@
             this.dgvDetalleDeVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetalleDeVenta.Location = new System.Drawing.Point(14, 37);
             this.dgvDetalleDeVenta.Name = "dgvDetalleDeVenta";
+            this.dgvDetalleDeVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetalleDeVenta.Size = new System.Drawing.Size(741, 122);
             this.dgvDetalleDeVenta.TabIndex = 0;
             // 
