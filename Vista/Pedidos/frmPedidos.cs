@@ -65,14 +65,22 @@ namespace Vista.Pedidos
                 return;
             }
             
-            DataTable dt = (DataTable)dgvDetallesDePedido.DataSource;
-            if (dt != null)
+            if (idPedidoSeleccionado <= 0)
             {
-                DataRow newRow = dt.NewRow();
-                newRow["Mueble"] = txtMuebleaRealizar.Text;
-                newRow["Cantidad"] = nudCantidad.Value;
-                newRow["Medidas"] = medidaLargo + "x" + medidaAncho + "x" + medidaAlto;
-                dt.Rows.Add(newRow);
+                MessageBox.Show("Seleccione un pedido primero.");
+                return;
+            }
+            
+            string medidas = medidaLargo + "x" + medidaAncho + "x" + medidaAlto;
+            if (DetallePedidos.InsertarDetalle(idPedidoSeleccionado, txtMuebleaRealizar.Text, Convert.ToInt32(nudCantidad.Value), medidas))
+            {
+                MessageBox.Show("Detalle agregado correctamente.");
+                dgvDetallesDePedido.DataSource = null;
+                dgvDetallesDePedido.DataSource = DetallePedidos.CargarDetallesPorPedido(idPedidoSeleccionado);
+            }
+            else
+            {
+                MessageBox.Show("Error al agregar el detalle.");
             }
             
             txtMuebleaRealizar.Clear();
@@ -94,7 +102,7 @@ namespace Vista.Pedidos
             if (idPedidoSeleccionado > 0)
             {
                 string nuevoEstado = cbEstado.Text;
-                DateTime fechaEntrega = dtpFechaPedido.Value;
+                DateTime fechaEntrega = dtpFechaDeEntrega.Value;
                 if (DbPedidos.ActualizarPedido(idPedidoSeleccionado, nuevoEstado, fechaEntrega))
                 {
                     MessageBox.Show("El estado del pedido se actualizó correctamente a: " + nuevoEstado);
@@ -180,10 +188,10 @@ namespace Vista.Pedidos
             }
             
             if (!string.IsNullOrEmpty(colPedido) && row.Cells[colPedido].Value != DBNull.Value && row.Cells[colPedido].Value != null)
-                dtpFechaDeEntrega.Value = Convert.ToDateTime(row.Cells[colPedido].Value);
+                dtpFechaPedido.Value = Convert.ToDateTime(row.Cells[colPedido].Value);
                 
             if (!string.IsNullOrEmpty(colEntrega) && row.Cells[colEntrega].Value != DBNull.Value && row.Cells[colEntrega].Value != null)
-                dtpFechaPedido.Value = Convert.ToDateTime(row.Cells[colEntrega].Value);
+                dtpFechaDeEntrega.Value = Convert.ToDateTime(row.Cells[colEntrega].Value);
                 
             dgvDetallesDePedido.DataSource = null;
             dgvDetallesDePedido.DataSource = DetallePedidos.CargarDetallesPorPedido(idPedidoSeleccionado);
