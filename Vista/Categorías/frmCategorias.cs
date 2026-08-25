@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Vista.Categorías
 {
@@ -44,7 +45,9 @@ namespace Vista.Categorías
         private void frmCategorias_Load(object sender, EventArgs e)
         {
             MostrarCategorias();
+            DesactivarCopiarPegar(this);
             btnGuardarCambios.Visible = false;
+
 
         }
 
@@ -65,11 +68,7 @@ namespace Vista.Categorías
             categoria.Estado1 = cbEstado.Text;
             if (categoria.InsertarCategoria())
             {
-                MessageBox.Show(
-                    "Categoría registrada correctamente.",
-                    "Registro exitoso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                MessageBox.Show("Categoría registrada correctamente.","Registro exitoso",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
             MostrarCategorias();
         }
@@ -207,6 +206,22 @@ namespace Vista.Categorías
             idCategoriaSeleccionada = 0;
 
 
+        }
+
+        private void DesactivarCopiarPegar(Control control)
+        {
+            foreach (Control elemento in control.Controls)
+            {
+                if (elemento is TextBox)
+                {
+                    ((TextBox)elemento).ShortcutsEnabled = false;
+                }
+
+                if (elemento.HasChildren)
+                {
+                    DesactivarCopiarPegar(elemento);
+                }
+            }
         }
     }
     }

@@ -23,13 +23,42 @@ namespace Vista.Clientes_Secretario
         {
             if (cbTipoCliente.SelectedIndex == 0)
             {
-                gbDatosEmpresa.Visible = false;
+                // Paneles
+                pnlRegistroClienteIndividual.Visible = true;
+                pnlRegistroClienteCorporativo.Visible = false;
+
+                // Barras
+                pnlBarraClienteIndividual.Visible = true;
+                pnlBarraClienteCorporativo.Visible = false;
+
+                // Botones
+                btnGuardarIndividual.Visible = true;
+                btnGuardarCorporativo.Visible = false;
+
+                //Group Box
+
                 gbPersonaNatural.Visible = true;
+                gbDatosEmpresa.Visible = false;
+
             }
-            if (cbTipoCliente.SelectedIndex == 1)
+            else if (cbTipoCliente.SelectedIndex == 1)
             {
-                gbDatosEmpresa.Visible = true;
+                // Paneles
+                pnlRegistroClienteIndividual.Visible = false;
+                pnlRegistroClienteCorporativo.Visible = true;
+
+                // Barras
+                pnlBarraClienteIndividual.Visible = false;
+                pnlBarraClienteCorporativo.Visible = true;
+
+                // Botones
+                btnGuardarIndividual.Visible = false;
+                btnGuardarCorporativo.Visible = true;
+
+                //Group Box
                 gbPersonaNatural.Visible = false;
+                gbDatosEmpresa.Visible = true;
+
 
             }
         }
@@ -91,12 +120,22 @@ namespace Vista.Clientes_Secretario
         {
             MostrarClientesIndividuales();
             MostrarClientesCorporativos();
+            ActualizarEstadisticas();
 
             pnlRegistroClienteIndividual.Visible = true;
             pnlRegistroClienteCorporativo.Visible = false;
 
             pnlBarraClienteIndividual.Visible = true;
             pnlBarraClienteCorporativo.Visible = false;
+
+            btnGuardarCambios.Visible = false;
+        }
+
+        private void ActualizarEstadisticas()
+        {
+            lblTotalClientes.Text = DbCliente.ContarClientesTotales().ToString();
+            lblClientesActivos.Text = DbCliente.ContarClientesActivos().ToString();
+            lblClientesInactivos.Text = DbCliente.ContarClientesInactivos().ToString();
         }
 
 
@@ -104,46 +143,47 @@ namespace Vista.Clientes_Secretario
         {
             if (cbTipoCliente.SelectedIndex == 0)
             {
-                gbDatosEmpresa.Visible = false;
+                // Paneles
+                pnlRegistroClienteIndividual.Visible = true;
+                pnlRegistroClienteCorporativo.Visible = false;
+
+                // Barras
+                pnlBarraClienteIndividual.Visible = true;
+                pnlBarraClienteCorporativo.Visible = false;
+
+                // Botones
+                btnGuardarIndividual.Visible = true;
+                btnGuardarCorporativo.Visible = false;
+
+                //Group Box
+
                 gbPersonaNatural.Visible = true;
+                gbDatosEmpresa.Visible = false;
+
             }
-            if (cbTipoCliente.SelectedIndex == 1)
+            else if (cbTipoCliente.SelectedIndex == 1)
             {
-                gbDatosEmpresa.Visible = true;
+                // Paneles
+                pnlRegistroClienteIndividual.Visible = false;
+                pnlRegistroClienteCorporativo.Visible = true;
+
+                // Barras
+                pnlBarraClienteIndividual.Visible = false;
+                pnlBarraClienteCorporativo.Visible = true;
+
+                // Botones
+                btnGuardarIndividual.Visible = false;
+                btnGuardarCorporativo.Visible = true;
+
+                //Group Box
                 gbPersonaNatural.Visible = false;
+                gbDatosEmpresa.Visible = true;
+
 
             }
         }
 
 
-        private void btnGuardarIndividual_Click(object sender, EventArgs e)
-        {
-            DbCliente cliente = new DbCliente();
-
-            cliente.TipoCliente1 = 2;
-            cliente.Identificador11 = txtNombres.Text;
-            cliente.Identificador21 = txtApellidos.Text;
-            cliente.Documento1 = txtDUI.Text;
-            cliente.Telefono1 = txtTelefono.Text;
-            cliente.Correo1 = txtCorreo.Text;
-            cliente.Direccion1 = txtDireccion.Text;
-
-            if (cliente.InsertarClienteIndividual())
-            {
-                MessageBox.Show("Cliente individual registrado correctamente.", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                MostrarClientesIndividuales();
-
-
-                // Limpiar campos
-                txtNombres.Clear();
-                txtApellidos.Clear();
-                txtDUI.Clear();
-                txtTelefono.Clear();
-                txtCorreo.Clear();
-                txtDireccion.Clear();
-            }
-        }
 
         private void btnGuardarCorporativo_Click(object sender, EventArgs e)
         {
@@ -189,52 +229,10 @@ namespace Vista.Clientes_Secretario
         private string telefonoOriginal;
         private string correoOriginal;
         private string direccionOriginal;
+        private string estadoOriginal;
 
 
-
-
-
-
-
-
-        private void dgvClientesCorporativos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0 || ((DataGridView)sender).Rows[e.RowIndex].IsNewRow)
-                return;
-
-            DataGridViewRow fila = dgvClientesCorporativos.Rows[e.RowIndex];
-
-            idClienteSeleccionado = Convert.ToInt32(fila.Cells["IdCliente"].Value);
-
-            tipoClienteSeleccionado = 1;
-
-            // Guardamos los datos originales
-            identificador1Original = fila.Cells["Nombre_De_Empresa"].Value?.ToString() ?? "";
-            identificador2Original = fila.Cells["Nombre_Del_Encargado"].Value?.ToString() ?? "";
-            documentoOriginal = fila.Cells["NIT"].Value?.ToString() ?? "";
-            telefonoOriginal = fila.Cells["Telefono"].Value?.ToString() ?? "";
-            correoOriginal = fila.Cells["Correo"].Value?.ToString() ?? "";
-            direccionOriginal = fila.Cells["Direccion"].Value?.ToString() ?? "";
-
-            // Pasamos los datos al formulario
-            txtNombreEmpresa.Text = identificador1Original;
-            txtNombreEncargado.Text = identificador2Original;
-            txtNIT.Text = documentoOriginal;
-            txtTelefono.Text = telefonoOriginal;
-            txtCorreo.Text = correoOriginal;
-            txtDireccion.Text = direccionOriginal;
-
-            BloquearCampos();
-
-            btnEditar.Visible = true;
-            btnGuardarCambios.Visible = false;
-            //Muestra el Combo Box necesario y el otro lo oculta
-            gbDatosEmpresa.Visible = true;
-            gbPersonaNatural.Visible = false;
-            //Muestra la tabla de registros segun el tipo de cliente
-            pnlRegistroClienteIndividual.Visible = false;
-            pnlRegistroClienteCorporativo.Visible = true;
-        }
+        
 
         private void BloquearCampos()
         {
@@ -251,7 +249,6 @@ namespace Vista.Clientes_Secretario
         private void HabilitarCampos()
         {
             cbTipoCliente.Enabled = true;
-
             txtNombreEmpresa.ReadOnly = false;
             txtNombreEncargado.ReadOnly = false;
             txtNIT.ReadOnly = false;
@@ -273,21 +270,50 @@ namespace Vista.Clientes_Secretario
             btnEditar.Visible = true;
             btnGuardarCambios.Visible = true;
         }
+  
 
-       
-            
+      
+
+
         private void dgvClientesCorporativos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (idClienteSeleccionado == 0)
-            {
-                MessageBox.Show("Seleccione un cliente primero.");
+            if (e.RowIndex < 0 || dgvClientesCorporativos.Rows[e.RowIndex].IsNewRow)
                 return;
-            }
 
-            HabilitarCampos();
+            DataGridViewRow fila = dgvClientesCorporativos.Rows[e.RowIndex];
+
+            idClienteSeleccionado = Convert.ToInt32(fila.Cells["IdCliente"].Value);
+
+            tipoClienteSeleccionado = 1;
+
+            // Guardamos los datos originales
+            identificador1Original = fila.Cells["Nombre_De_Empresa"].Value?.ToString() ?? "";
+            identificador2Original = fila.Cells["Nombre_Del_Encargado"].Value?.ToString() ?? "";
+            documentoOriginal = fila.Cells["NIT"].Value?.ToString() ?? "";
+            telefonoOriginal = fila.Cells["Telefono"].Value?.ToString() ?? "";
+            correoOriginal = fila.Cells["Correo"].Value?.ToString() ?? "";
+            direccionOriginal = fila.Cells["Direccion"].Value?.ToString() ?? "";
+            estadoOriginal = fila.Cells["Estado"].Value?.ToString() ?? "";
+
+            // Pasamos los datos al formulario
+            txtNombreEmpresa.Text = identificador1Original;
+            txtNombreEncargado.Text = identificador2Original;
+            txtNIT.Text = documentoOriginal;
+            txtTelefono.Text = telefonoOriginal;
+            txtCorreo.Text = correoOriginal;
+            txtDireccion.Text = direccionOriginal;
+            cbEstadoCliente.Text = estadoOriginal;
+
+            BloquearCampos();
 
             btnEditar.Visible = true;
-            btnGuardarCambios.Visible = true;
+            btnGuardarCambios.Visible = false;
+            //Muestra el Combo Box necesario y el otro lo oculta
+            gbDatosEmpresa.Visible = true;
+            gbPersonaNatural.Visible = false;
+            //Muestra la tabla de registros segun el tipo de cliente
+            pnlRegistroClienteIndividual.Visible = false;
+            pnlRegistroClienteCorporativo.Visible = true;
         }
 
         private void btnGuardarCambios_Click_1(object sender, EventArgs e)
@@ -383,8 +409,8 @@ namespace Vista.Clientes_Secretario
 
             btnEditar.Visible = true;
             btnGuardarCambios.Visible = false;
-            //Muestra el Combo Box necesario y el otro lo oculta
 
+            //Muestra el Combo Box necesario y el otro lo oculta
             gbDatosEmpresa.Visible = false;
             gbPersonaNatural.Visible = true;
             //Muestra la tabla de registros segun el tipo de cliente
@@ -392,7 +418,67 @@ namespace Vista.Clientes_Secretario
             pnlRegistroClienteCorporativo.Visible = false;
         }
 
-      
+        private void btnGuardarIndividual_Click(object sender, EventArgs e)
+        {
+            DbCliente cliente = new DbCliente();
+
+            cliente.TipoCliente1 = 2;
+            cliente.Identificador11 = txtNombres.Text;
+            cliente.Identificador21 = txtApellidos.Text;
+            cliente.Documento1 = txtDUI.Text;
+            cliente.Telefono1 = txtTelefono.Text;
+            cliente.Correo1 = txtCorreo.Text;
+            cliente.Direccion1 = txtDireccion.Text;
+            cliente.Estado1 = cbEstadoCliente.Text;
+
+            if (cliente.InsertarClienteIndividual())
+            {
+                MessageBox.Show("Cliente individual registrado correctamente.", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MostrarClientesIndividuales();
+
+
+                // Limpiar campos
+                txtNombres.Clear();
+                txtApellidos.Clear();
+                txtDUI.Clear();
+                txtTelefono.Clear();
+                txtCorreo.Clear();
+                txtDireccion.Clear();
+                cbEstadoCliente.SelectedIndex = -1;
+            }
+        }
+
+        private void btnGuardarCorporativo_Click_1(object sender, EventArgs e)
+        {
+            DbCliente cliente = new DbCliente();
+
+            cliente.TipoCliente1 = 1;
+            cliente.Identificador11 = txtNombreEmpresa.Text;
+            cliente.Identificador21 = txtNombreEncargado.Text;
+            cliente.Documento1 = txtNIT.Text;
+            cliente.Telefono1 = txtTelefono.Text;
+            cliente.Correo1 = txtCorreo.Text;
+            cliente.Direccion1 = txtDireccion.Text;
+            cliente.Estado1 = cbEstadoCliente.Text;
+
+            if (cliente.InsertarClienteCorporativo())
+            {
+                MessageBox.Show("Cliente corporativo registrado correctamente.", "Registro exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MostrarClientesCorporativos();
+
+                // Limpiar campos
+                txtNombreEmpresa.Clear();
+                txtNombreEncargado.Clear();
+                txtNIT.Clear();
+                txtTelefono.Clear();
+                txtCorreo.Clear();
+                txtDireccion.Clear();
+                cbEstadoCliente.SelectedIndex = -1;
+            }
+
+        }
     }
 }
 

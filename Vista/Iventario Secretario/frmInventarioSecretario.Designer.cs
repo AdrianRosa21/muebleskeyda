@@ -50,7 +50,7 @@
             this.pbPocasUnidades = new System.Windows.Forms.PictureBox();
             this.txtMaterial = new System.Windows.Forms.TextBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.dgvInventario = new System.Windows.Forms.DataGridView();
+            this.dgvMateriales = new System.Windows.Forms.DataGridView();
             this.lblDatosMaterial = new System.Windows.Forms.Label();
             this.pnlIndicador3 = new System.Windows.Forms.Panel();
             this.lblTotalInventario = new System.Windows.Forms.Label();
@@ -65,6 +65,8 @@
             this.pnlContenedorPrincipalInventario = new System.Windows.Forms.Panel();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pbBuscar = new System.Windows.Forms.PictureBox();
+            this.cbCategorias = new System.Windows.Forms.ComboBox();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.pnlIndicador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAgotados)).BeginInit();
             this.pnlIndicador1.SuspendLayout();
@@ -72,7 +74,7 @@
             this.pnlIndicador2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPocasUnidades)).BeginInit();
             this.pnlPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMateriales)).BeginInit();
             this.pnlIndicador3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTotalRegistros)).BeginInit();
             this.pnlBarraSuperior.SuspendLayout();
@@ -129,6 +131,7 @@
             this.btnGuardar.TabIndex = 15;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnEditar
             // 
@@ -141,6 +144,7 @@
             this.btnEditar.TabIndex = 14;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // lblProveedor
             // 
@@ -251,7 +255,7 @@
             // 
             this.txtCategoria.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCategoria.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.txtCategoria.Location = new System.Drawing.Point(21, 160);
+            this.txtCategoria.Location = new System.Drawing.Point(378, 63);
             this.txtCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.txtCategoria.Name = "txtCategoria";
             this.txtCategoria.Size = new System.Drawing.Size(182, 19);
@@ -313,22 +317,23 @@
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(153)))), ((int)(((byte)(105)))));
-            this.pnlPrincipal.Controls.Add(this.dgvInventario);
+            this.pnlPrincipal.Controls.Add(this.dgvMateriales);
             this.pnlPrincipal.Location = new System.Drawing.Point(260, 104);
             this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(820, 386);
             this.pnlPrincipal.TabIndex = 3;
             // 
-            // dgvInventario
+            // dgvMateriales
             // 
-            this.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvInventario.Location = new System.Drawing.Point(12, 10);
-            this.dgvInventario.Name = "dgvInventario";
-            this.dgvInventario.ReadOnly = true;
-            this.dgvInventario.Size = new System.Drawing.Size(799, 366);
-            this.dgvInventario.TabIndex = 1;
+            this.dgvMateriales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMateriales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvMateriales.Location = new System.Drawing.Point(12, 10);
+            this.dgvMateriales.Name = "dgvMateriales";
+            this.dgvMateriales.ReadOnly = true;
+            this.dgvMateriales.Size = new System.Drawing.Size(799, 366);
+            this.dgvMateriales.TabIndex = 1;
+            this.dgvMateriales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellDoubleClick);
             // 
             // lblDatosMaterial
             // 
@@ -443,6 +448,8 @@
             // pnlPedidaDeDatos
             // 
             this.pnlPedidaDeDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            this.pnlPedidaDeDatos.Controls.Add(this.btnGuardarCambios);
+            this.pnlPedidaDeDatos.Controls.Add(this.cbCategorias);
             this.pnlPedidaDeDatos.Controls.Add(this.cbUnidadMedida);
             this.pnlPedidaDeDatos.Controls.Add(this.txtProveedor);
             this.pnlPedidaDeDatos.Controls.Add(this.btnGuardar);
@@ -451,7 +458,6 @@
             this.pnlPedidaDeDatos.Controls.Add(this.lblMedida);
             this.pnlPedidaDeDatos.Controls.Add(this.txtCantidad);
             this.pnlPedidaDeDatos.Controls.Add(this.lblCantidad);
-            this.pnlPedidaDeDatos.Controls.Add(this.txtCategoria);
             this.pnlPedidaDeDatos.Controls.Add(this.lblCategoria);
             this.pnlPedidaDeDatos.Controls.Add(this.txtMaterial);
             this.pnlPedidaDeDatos.Controls.Add(this.lblMaterial);
@@ -484,6 +490,7 @@
             this.pnlHeader.Controls.Add(this.pnlIndicador2);
             this.pnlHeader.Controls.Add(this.pnlIndicador);
             this.pnlHeader.Controls.Add(this.pnlIndicador1);
+            this.pnlHeader.Controls.Add(this.txtCategoria);
             this.pnlHeader.Controls.Add(this.lblMensajeInformativoPrincipal);
             this.pnlHeader.Controls.Add(this.pnlPrincipal);
             this.pnlHeader.Location = new System.Drawing.Point(1, 1);
@@ -501,6 +508,27 @@
             this.pbBuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbBuscar.TabIndex = 10;
             this.pbBuscar.TabStop = false;
+            // 
+            // cbCategorias
+            // 
+            this.cbCategorias.FormattingEnabled = true;
+            this.cbCategorias.Location = new System.Drawing.Point(22, 163);
+            this.cbCategorias.Name = "cbCategorias";
+            this.cbCategorias.Size = new System.Drawing.Size(181, 21);
+            this.cbCategorias.TabIndex = 2;
+            // 
+            // btnGuardarCambios
+            // 
+            this.btnGuardarCambios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnGuardarCambios.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.btnGuardarCambios.Location = new System.Drawing.Point(118, 402);
+            this.btnGuardarCambios.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(91, 36);
+            this.btnGuardarCambios.TabIndex = 19;
+            this.btnGuardarCambios.Text = "Guardar";
+            this.btnGuardarCambios.UseVisualStyleBackColor = false;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
             // frmInventarioSecretario
             // 
@@ -522,7 +550,7 @@
             this.pnlIndicador2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPocasUnidades)).EndInit();
             this.pnlPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMateriales)).EndInit();
             this.pnlIndicador3.ResumeLayout(false);
             this.pnlIndicador3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTotalRegistros)).EndInit();
@@ -578,6 +606,8 @@
         private System.Windows.Forms.Panel pnlContenedorPrincipalInventario;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblAdministrador;
-        private System.Windows.Forms.DataGridView dgvInventario;
+        private System.Windows.Forms.DataGridView dgvMateriales;
+        private System.Windows.Forms.ComboBox cbCategorias;
+        private System.Windows.Forms.Button btnGuardarCambios;
     }
 }

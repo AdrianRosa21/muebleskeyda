@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblFinalizados = new System.Windows.Forms.Label();
             this.pnlIndicador2 = new System.Windows.Forms.Panel();
             this.pbFinalizados = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlContenedorTabla = new System.Windows.Forms.Panel();
+            this.dgvProduccion = new System.Windows.Forms.DataGridView();
             this.btnEditar = new System.Windows.Forms.Button();
             this.pnlIndicador1 = new System.Windows.Forms.Panel();
             this.pbCancelados = new System.Windows.Forms.PictureBox();
@@ -53,10 +54,10 @@
             this.pnlBarraInformativa = new System.Windows.Forms.Panel();
             this.lblAdministrador = new System.Windows.Forms.Label();
             this.pbPerfil = new System.Windows.Forms.PictureBox();
-            this.dgvProducción = new System.Windows.Forms.DataGridView();
             this.pnlIndicador2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFinalizados)).BeginInit();
             this.pnlContenedorTabla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduccion)).BeginInit();
             this.pnlIndicador1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancelados)).BeginInit();
             this.pnlIndicador3.SuspendLayout();
@@ -67,7 +68,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxBuscar)).BeginInit();
             this.pnlBarraInformativa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPerfil)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducción)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFinalizados
@@ -114,13 +114,31 @@
             // pnlContenedorTabla
             // 
             this.pnlContenedorTabla.BackColor = System.Drawing.Color.White;
-            this.pnlContenedorTabla.Controls.Add(this.dgvProducción);
+            this.pnlContenedorTabla.Controls.Add(this.dgvProduccion);
             this.pnlContenedorTabla.Controls.Add(this.btnEditar);
             this.pnlContenedorTabla.Location = new System.Drawing.Point(29, 268);
             this.pnlContenedorTabla.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedorTabla.Name = "pnlContenedorTabla";
             this.pnlContenedorTabla.Size = new System.Drawing.Size(1045, 337);
             this.pnlContenedorTabla.TabIndex = 3;
+            // 
+            // dgvProduccion
+            // 
+            this.dgvProduccion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProduccion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvProduccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvProduccion.Location = new System.Drawing.Point(17, 14);
+            this.dgvProduccion.Name = "dgvProduccion";
+            this.dgvProduccion.ReadOnly = true;
+            this.dgvProduccion.Size = new System.Drawing.Size(1011, 258);
+            this.dgvProduccion.TabIndex = 4;
             // 
             // btnEditar
             // 
@@ -230,6 +248,7 @@
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar Filtros";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // cbEstados
             // 
@@ -238,14 +257,15 @@
             this.cbEstados.FormattingEnabled = true;
             this.cbEstados.Items.AddRange(new object[] {
             "Todos los estados",
-            "Terminados",
+            "Finalizados",
             "Pendientes",
-            "Cancelados"});
+            "En Proceso"});
             this.cbEstados.Location = new System.Drawing.Point(53, 231);
             this.cbEstados.Margin = new System.Windows.Forms.Padding(2);
             this.cbEstados.Name = "cbEstados";
             this.cbEstados.Size = new System.Drawing.Size(217, 29);
             this.cbEstados.TabIndex = 9;
+            this.cbEstados.SelectedIndexChanged += new System.EventHandler(this.cbEstados_SelectedIndexChanged);
             // 
             // pnlIndicador4
             // 
@@ -278,6 +298,7 @@
             this.txtBuscar.Size = new System.Drawing.Size(488, 29);
             this.txtBuscar.TabIndex = 13;
             this.txtBuscar.Text = "Buscar por código o nombre de cliente...";
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.Enter += new System.EventHandler(this.txtBuscar_Enter);
             this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
             // 
@@ -344,24 +365,6 @@
             this.pbPerfil.TabIndex = 25;
             this.pbPerfil.TabStop = false;
             // 
-            // dgvProducción
-            // 
-            this.dgvProducción.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProducción.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProducción.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvProducción.Location = new System.Drawing.Point(17, 14);
-            this.dgvProducción.Name = "dgvProducción";
-            this.dgvProducción.ReadOnly = true;
-            this.dgvProducción.Size = new System.Drawing.Size(1011, 258);
-            this.dgvProducción.TabIndex = 4;
-            // 
             // frmProduccionSecretario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,6 +379,7 @@
             this.pnlIndicador2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFinalizados)).EndInit();
             this.pnlContenedorTabla.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduccion)).EndInit();
             this.pnlIndicador1.ResumeLayout(false);
             this.pnlIndicador1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCancelados)).EndInit();
@@ -391,7 +395,6 @@
             this.pnlBarraInformativa.ResumeLayout(false);
             this.pnlBarraInformativa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPerfil)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducción)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -422,6 +425,6 @@
         private System.Windows.Forms.Panel pnlBarraInformativa;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Label lblAdministrador;
-        private System.Windows.Forms.DataGridView dgvProducción;
+        private System.Windows.Forms.DataGridView dgvProduccion;
     }
 }

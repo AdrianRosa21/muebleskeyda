@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Vista.Clientes;
 
 namespace Vista.Facturación
@@ -26,7 +27,8 @@ namespace Vista.Facturación
         {
             MostrarRegistrosFacturas();
             MostrarDetalleFactura();
-            
+            DesactivarCopiarPegar(this);
+
             System.Data.DataTable dtVentas = Modelo.Entidades.DbFactura.CargarVentasParaFactura();
             cbVentas.DataSource = dtVentas;
             cbVentas.DisplayMember = "Display";
@@ -159,6 +161,22 @@ namespace Vista.Facturación
             else
             {
                 MessageBox.Show("Por favor, busque y cargue una venta (pedido) antes de guardar la factura.");
+            }
+        }
+
+        private void DesactivarCopiarPegar(Control control)
+        {
+            foreach (Control elemento in control.Controls)
+            {
+                if (elemento is TextBox)
+                {
+                    ((TextBox)elemento).ShortcutsEnabled = false;
+                }
+
+                if (elemento.HasChildren)
+                {
+                    DesactivarCopiarPegar(elemento);
+                }
             }
         }
     }

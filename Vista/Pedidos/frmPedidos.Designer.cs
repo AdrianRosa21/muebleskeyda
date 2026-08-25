@@ -52,13 +52,13 @@ namespace Vista.Pedidos
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDetallesDePedido = new System.Windows.Forms.DataGridView();
             this.pnlPedidaDeDatos = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.txtMuebleaRealizar = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.dtpFechaDeEntrega = new System.Windows.Forms.DateTimePicker();
             this.lblFechaPedido = new System.Windows.Forms.Label();
-            this.dtpFechaEntrega = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaPedido = new System.Windows.Forms.DateTimePicker();
             this.pnlTituloDetallesPedido = new System.Windows.Forms.Panel();
             this.lblDatosPedido = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -80,7 +80,7 @@ namespace Vista.Pedidos
             this.pnlTitulo1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesDePedido)).BeginInit();
             this.pnlPedidaDeDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             this.pnlTituloDetallesPedido.SuspendLayout();
             this.pnlContenedorPrincipalInventario.SuspendLayout();
             this.SuspendLayout();
@@ -343,13 +343,13 @@ namespace Vista.Pedidos
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidaDeDatos.AutoScroll = true;
             this.pnlPedidaDeDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.pnlPedidaDeDatos.Controls.Add(this.numericUpDown1);
+            this.pnlPedidaDeDatos.Controls.Add(this.nudCantidad);
             this.pnlPedidaDeDatos.Controls.Add(this.lblCantidad);
             this.pnlPedidaDeDatos.Controls.Add(this.txtMuebleaRealizar);
-            this.pnlPedidaDeDatos.Controls.Add(this.comboBox1);
-            this.pnlPedidaDeDatos.Controls.Add(this.dateTimePicker1);
+            this.pnlPedidaDeDatos.Controls.Add(this.cbEstado);
+            this.pnlPedidaDeDatos.Controls.Add(this.dtpFechaDeEntrega);
             this.pnlPedidaDeDatos.Controls.Add(this.lblFechaPedido);
-            this.pnlPedidaDeDatos.Controls.Add(this.dtpFechaEntrega);
+            this.pnlPedidaDeDatos.Controls.Add(this.dtpFechaPedido);
             this.pnlPedidaDeDatos.Controls.Add(this.pnlTituloDetallesPedido);
             this.pnlPedidaDeDatos.Controls.Add(this.btnGuardar);
             this.pnlPedidaDeDatos.Controls.Add(this.btnDeatllePedido);
@@ -366,12 +366,12 @@ namespace Vista.Pedidos
             this.pnlPedidaDeDatos.Size = new System.Drawing.Size(228, 454);
             this.pnlPedidaDeDatos.TabIndex = 2;
             // 
-            // numericUpDown1
+            // nudCantidad
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(88, 297);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown1.TabIndex = 37;
+            this.nudCantidad.Location = new System.Drawing.Point(88, 297);
+            this.nudCantidad.Name = "nudCantidad";
+            this.nudCantidad.Size = new System.Drawing.Size(113, 20);
+            this.nudCantidad.TabIndex = 37;
             // 
             // lblCantidad
             // 
@@ -391,22 +391,22 @@ namespace Vista.Pedidos
             this.txtMuebleaRealizar.Size = new System.Drawing.Size(187, 20);
             this.txtMuebleaRealizar.TabIndex = 35;
             // 
-            // comboBox1
+            // cbEstado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(95, 144);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(113, 21);
-            this.comboBox1.TabIndex = 33;
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Location = new System.Drawing.Point(95, 144);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(113, 21);
+            this.cbEstado.TabIndex = 33;
             // 
-            // dateTimePicker1
+            // dtpFechaDeEntrega
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(127, 108);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(82, 20);
-            this.dateTimePicker1.TabIndex = 32;
+            this.dtpFechaDeEntrega.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaDeEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaDeEntrega.Location = new System.Drawing.Point(127, 108);
+            this.dtpFechaDeEntrega.Name = "dtpFechaDeEntrega";
+            this.dtpFechaDeEntrega.Size = new System.Drawing.Size(82, 20);
+            this.dtpFechaDeEntrega.TabIndex = 32;
             // 
             // lblFechaPedido
             // 
@@ -419,14 +419,14 @@ namespace Vista.Pedidos
             this.lblFechaPedido.TabIndex = 31;
             this.lblFechaPedido.Text = "Fecha del pedido:";
             // 
-            // dtpFechaEntrega
+            // dtpFechaPedido
             // 
-            this.dtpFechaEntrega.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaEntrega.Location = new System.Drawing.Point(129, 76);
-            this.dtpFechaEntrega.Name = "dtpFechaEntrega";
-            this.dtpFechaEntrega.Size = new System.Drawing.Size(80, 20);
-            this.dtpFechaEntrega.TabIndex = 30;
+            this.dtpFechaPedido.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaPedido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaPedido.Location = new System.Drawing.Point(129, 76);
+            this.dtpFechaPedido.Name = "dtpFechaPedido";
+            this.dtpFechaPedido.Size = new System.Drawing.Size(80, 20);
+            this.dtpFechaPedido.TabIndex = 30;
             // 
             // pnlTituloDetallesPedido
             // 
@@ -559,7 +559,7 @@ namespace Vista.Pedidos
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesDePedido)).EndInit();
             this.pnlPedidaDeDatos.ResumeLayout(false);
             this.pnlPedidaDeDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).EndInit();
             this.pnlTituloDetallesPedido.ResumeLayout(false);
             this.pnlTituloDetallesPedido.PerformLayout();
             this.pnlContenedorPrincipalInventario.ResumeLayout(false);
@@ -593,13 +593,13 @@ namespace Vista.Pedidos
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel pnlTituloDetallesPedido;
         private System.Windows.Forms.Label lblDatosPedido;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpFechaDeEntrega;
         private System.Windows.Forms.Label lblFechaPedido;
-        private System.Windows.Forms.DateTimePicker dtpFechaEntrega;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dtpFechaPedido;
+        private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Panel pnlDivisor;
         private System.Windows.Forms.TextBox txtMuebleaRealizar;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Panel pnlRegistros;
         private System.Windows.Forms.DataGridView dgvPedidosRegistrados;

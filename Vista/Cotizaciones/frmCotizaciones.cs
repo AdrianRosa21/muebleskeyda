@@ -49,16 +49,7 @@ namespace Vista.Cotizaciones
             dgvCotizacionesRegistradas.DataSource = DbCotizacion.CargarCotizacion();
         }
 
-        private void MostrarDetalleCotizacion()
-        {
-            dgvDetalleDeCotizacion.DataSource = null;
-
-            dgvDetalleDeCotizacion.DataSource =
-                ProductosCotizacion.CargarDetalleCotizacion();
-        }
-
-        
-
+       
         private void frmCotizaciones_Load(object sender, EventArgs e)
         {
             cbEstado.Items.Add("Pendiente");
@@ -88,8 +79,13 @@ namespace Vista.Cotizaciones
 
             // Estado inicial
             cbEstado.SelectedIndex = -1;
+            //Fecha de cotizacion actual
+            dtpFechaCotizacion.Value = DateTime.Today;
+            dtpFechaCotizacion.Enabled = false;
+            //Metodo para validar que no se copie texto, ni tampoco se pegue texto
+            DesactivarCopiarPegar(this);
 
-        
+
         }
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
@@ -355,7 +351,7 @@ namespace Vista.Cotizaciones
 
                 if (estado != "Aprobada")
                 {
-                    MessageBox.Show("Solo las cotizaciones Aprobadas pueden convertirse en Pedidos.", "Atenci?n", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Solo las cotizaciones Aprobadas pueden convertirse en Pedidos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -363,12 +359,12 @@ namespace Vista.Cotizaciones
                 bool exito = DbPedidos.ConvertirCotizacionAPedido(idCotizacion, fechaEntrega);
                 if (exito)
                 {
-                    MessageBox.Show("?La cotizaci?n se ha convertido en Pedido exitosamente!\nFecha estimada de entrega: " + fechaEntrega.ToShortDateString(), "?xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("?La cotización se ha convertido en Pedido exitosamente!\nFecha estimada de entrega: " + fechaEntrega.ToShortDateString(), "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona una cotizaci?n de la tabla primero.");
+                MessageBox.Show("Por favor, selecciona una cotización de la tabla primero.");
             }
         }
     
@@ -387,25 +383,25 @@ namespace Vista.Cotizaciones
             if (dgvCotizacionesRegistradas.CurrentRow != null)
             {
                 int idCotizacion = Convert.ToInt32(dgvCotizacionesRegistradas.CurrentRow.Cells["IdCotizacion"].Value);
-                DialogResult dialogResult = MessageBox.Show("?Est?s seguro de que deseas eliminar la cotizaci?n #" + idCotizacion + "?", "Confirmar Eliminaci?n", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("¿Estas seguro de que deseas eliminar la cotización #" + idCotizacion + "?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
                     DbCotizacion cotizacion = new DbCotizacion();
                     cotizacion.IdCotizacion1 = idCotizacion;
                     if (cotizacion.EliminarCotizacion())
                     {
-                        MessageBox.Show("Cotizaci?n eliminada exitosamente.", "?xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cotización eliminada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MostrarCotizacionesRegistradas();
                     }
                     else
                     {
-                        MessageBox.Show("Error al eliminar la cotizaci?n.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error al eliminar la cotización.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona una cotizaci?n de la tabla para eliminar.");
+                MessageBox.Show("Por favor, selecciona una cotización de la tabla para eliminar.");
             }
         }
     
@@ -417,7 +413,7 @@ namespace Vista.Cotizaciones
                 string estadoActual = dgvCotizacionesRegistradas.CurrentRow.Cells["Estado"].Value?.ToString();
 
                 DialogResult result = MessageBox.Show(
-                    "?Deseas cambiar el estado de la cotizaci?n #" + idCotizacion + "?\n\nPresiona S? para marcarla como 'Aprobada'.\nPresiona NO para marcarla como 'Rechazada'.\nPresiona CANCELAR para no hacer nada.", 
+                    "¿Deseas cambiar el estado de la cotización? #" + idCotizacion + "?\n\nPresiona SI para marcarla como 'Aprobada'.\nPresiona NO para marcarla como 'Rechazada'.\nPresiona CANCELAR para no hacer nada.", 
                     "Cambiar Estado", 
                     MessageBoxButtons.YesNoCancel, 
                     MessageBoxIcon.Question);
@@ -432,19 +428,36 @@ namespace Vista.Cotizaciones
                 
                 if (cot.ActualizarEstado(nuevoEstado))
                 {
-                    MessageBox.Show("El estado se actualiz? exitosamente a: " + nuevoEstado, "?xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El estado se actualizó exitosamente a: " + nuevoEstado, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MostrarCotizacionesRegistradas();
                 }
                 else
                 {
-                    MessageBox.Show("Ocurri? un error al actualizar el estado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ocurrió un error al actualizar el estado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Por favor selecciona una cotizaci?n primero.");
+                MessageBox.Show("Por favor selecciona una cotización primero.");
             }
         }
+        //Metodo para validar que no se pueda ni copiar ni pegar en los formularios
+        private void DesactivarCopiarPegar(Control control)
+        {
+            foreach (Control elemento in control.Controls)
+            {
+                if (elemento is TextBox)
+                {
+                    ((TextBox)elemento).ShortcutsEnabled = false;
+                }
+
+                if (elemento.HasChildren)
+                {
+                    DesactivarCopiarPegar(elemento);
+                }
+            }
+        }
+
     }
 }
 

@@ -35,7 +35,7 @@ namespace Vista.Pedidos
             }
         }
 
-                string medidaLargo = "0";
+        string medidaLargo = "0";
         string medidaAncho = "0";
         string medidaAlto = "0";
         string observaciones = "";
@@ -52,7 +52,7 @@ namespace Vista.Pedidos
             }
         }
 
-                        private void btnAgregar_Click(object sender, EventArgs e)
+       private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtMuebleaRealizar.Text))
             {
@@ -70,25 +70,31 @@ namespace Vista.Pedidos
             {
                 DataRow newRow = dt.NewRow();
                 newRow["Mueble"] = txtMuebleaRealizar.Text;
-                newRow["Cantidad"] = numericUpDown1.Value;
+                newRow["Cantidad"] = nudCantidad.Value;
                 newRow["Medidas"] = medidaLargo + "x" + medidaAncho + "x" + medidaAlto;
                 dt.Rows.Add(newRow);
             }
             
             txtMuebleaRealizar.Clear();
-            numericUpDown1.Value = 0;
+            nudCantidad.Value = 0;
             medidaLargo = "0";
             medidaAncho = "0";
             medidaAlto = "0";
             observaciones = "";
         }
 
-                        private void btnGuardar_Click(object sender, EventArgs e)
+       private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (dtpFechaDeEntrega.Value.Date < dtpFechaPedido.Value.Date)
+            {
+                MessageBox.Show("La fecha de entrega no puede ser anterior a la fecha del pedido.");
+                return;
+            }
+
             if (idPedidoSeleccionado > 0)
             {
-                string nuevoEstado = comboBox1.Text;
-                DateTime fechaEntrega = dtpFechaEntrega.Value;
+                string nuevoEstado = cbEstado.Text;
+                DateTime fechaEntrega = dtpFechaPedido.Value;
                 if (DbPedidos.ActualizarPedido(idPedidoSeleccionado, nuevoEstado, fechaEntrega))
                 {
                     MessageBox.Show("El estado del pedido se actualizó correctamente a: " + nuevoEstado);
@@ -103,14 +109,14 @@ namespace Vista.Pedidos
             {
                 MessageBox.Show("Para actualizar el estado, selecciona un pedido de la lista, elige 'En proceso' o 'Finalizado' en la lista desplegable y presiona Guardar.");
             }
-        }
+       }
 
         private void btnCamcelar_Click(object sender, EventArgs e)
         {
             ((DataTable)dgvDetallesDePedido.DataSource)?.RejectChanges();
             btnSeleccionarCliente.Text = "Seleccionar Cliente";
             txtMuebleaRealizar.Clear();
-            numericUpDown1.Value = 0;
+            nudCantidad.Value = 0;
         }
 
         private void txtBuscar_Enter(object sender, EventArgs e)
@@ -150,9 +156,9 @@ namespace Vista.Pedidos
             MostrarPedidos();
             MostrarDetallesPedido();
 
-            comboBox1.Items.Add("En proceso");
-            comboBox1.Items.Add("Finalizado");
-            comboBox1.SelectedIndex = 0;
+            cbEstado.Items.Add("En proceso");
+            cbEstado.Items.Add("Finalizado");
+            cbEstado.SelectedIndex = 0;
         }
     
         int idPedidoSeleccionado = 0;
@@ -162,7 +168,7 @@ namespace Vista.Pedidos
             DataGridViewRow row = dgvPedidosRegistrados.Rows[e.RowIndex];
             idPedidoSeleccionado = Convert.ToInt32(row.Cells["IdPedido"].Value);
             string estado = row.Cells["Estado"].Value?.ToString();
-            comboBox1.Text = estado;
+            cbEstado.Text = estado;
             
             // Buscar los nombres exactos de las columnas para las fechas
             string colPedido = "";
@@ -174,10 +180,10 @@ namespace Vista.Pedidos
             }
             
             if (!string.IsNullOrEmpty(colPedido) && row.Cells[colPedido].Value != DBNull.Value && row.Cells[colPedido].Value != null)
-                dateTimePicker1.Value = Convert.ToDateTime(row.Cells[colPedido].Value);
+                dtpFechaDeEntrega.Value = Convert.ToDateTime(row.Cells[colPedido].Value);
                 
             if (!string.IsNullOrEmpty(colEntrega) && row.Cells[colEntrega].Value != DBNull.Value && row.Cells[colEntrega].Value != null)
-                dtpFechaEntrega.Value = Convert.ToDateTime(row.Cells[colEntrega].Value);
+                dtpFechaPedido.Value = Convert.ToDateTime(row.Cells[colEntrega].Value);
                 
             dgvDetallesDePedido.DataSource = null;
             dgvDetallesDePedido.DataSource = DetallePedidos.CargarDetallesPorPedido(idPedidoSeleccionado);

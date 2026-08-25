@@ -33,7 +33,6 @@ namespace Vista.Pedidos
             Largo = txtLargo.Text;
             Ancho = textBox3.Text;
             Alto = txtAlto.Text;
-            Observaciones = txtObservaciones.Text;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

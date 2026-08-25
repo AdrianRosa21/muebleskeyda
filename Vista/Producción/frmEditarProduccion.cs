@@ -24,6 +24,10 @@ namespace Vista.Producción
 
             // Cargar los datos inmediatamente
             CargarProduccion();
+
+            txtCliente.Enabled = false;
+            txtCodigoProduccion.Enabled = false;
+            txtMuebleRealizar.Enabled = false;
         }
 
         private void CargarProduccion()

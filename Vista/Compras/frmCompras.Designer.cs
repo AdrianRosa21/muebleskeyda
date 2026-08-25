@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlPrincipalCompras = new System.Windows.Forms.Panel();
             this.pnlComprasRegistradas = new System.Windows.Forms.Panel();
             this.lblComprasRegistradas = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblAgregarMaterial = new System.Windows.Forms.Label();
             this.gbBarraDecorativa = new System.Windows.Forms.GroupBox();
-            this.btnAgregarCompra = new System.Windows.Forms.Button();
+            this.btnAgregarProductos = new System.Windows.Forms.Button();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.cbProveedor = new System.Windows.Forms.ComboBox();
             this.cbMaterial = new System.Windows.Forms.ComboBox();
@@ -119,22 +119,22 @@
             // dgvHistorialCompras
             // 
             this.dgvHistorialCompras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHistorialCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHistorialCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHistorialCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvHistorialCompras.Location = new System.Drawing.Point(8, 55);
             this.dgvHistorialCompras.Name = "dgvHistorialCompras";
             this.dgvHistorialCompras.ReadOnly = true;
             this.dgvHistorialCompras.Size = new System.Drawing.Size(754, 163);
             this.dgvHistorialCompras.TabIndex = 0;
-            this.dgvHistorialCompras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorialCompras_CellDoubleClick);
             this.dgvHistorialCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorialCompras_CellDoubleClick);
+            this.dgvHistorialCompras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHistorialCompras_CellDoubleClick);
             // 
             // pbBuscar
             // 
@@ -165,7 +165,7 @@
             this.pnlPedidaDeDatos.Controls.Add(this.btnActualizar);
             this.pnlPedidaDeDatos.Controls.Add(this.lblAgregarMaterial);
             this.pnlPedidaDeDatos.Controls.Add(this.gbBarraDecorativa);
-            this.pnlPedidaDeDatos.Controls.Add(this.btnAgregarCompra);
+            this.pnlPedidaDeDatos.Controls.Add(this.btnAgregarProductos);
             this.pnlPedidaDeDatos.Controls.Add(this.nudCantidad);
             this.pnlPedidaDeDatos.Controls.Add(this.cbProveedor);
             this.pnlPedidaDeDatos.Controls.Add(this.cbMaterial);
@@ -219,20 +219,20 @@
             this.gbBarraDecorativa.TabIndex = 27;
             this.gbBarraDecorativa.TabStop = false;
             // 
-            // btnAgregarCompra
+            // btnAgregarProductos
             // 
-            this.btnAgregarCompra.BackColor = System.Drawing.Color.Peru;
-            this.btnAgregarCompra.FlatAppearance.BorderSize = 0;
-            this.btnAgregarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCompra.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold);
-            this.btnAgregarCompra.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarCompra.Location = new System.Drawing.Point(23, 383);
-            this.btnAgregarCompra.Name = "btnAgregarCompra";
-            this.btnAgregarCompra.Size = new System.Drawing.Size(108, 33);
-            this.btnAgregarCompra.TabIndex = 26;
-            this.btnAgregarCompra.Text = "Agregar productos";
-            this.btnAgregarCompra.UseVisualStyleBackColor = false;
-            this.btnAgregarCompra.Click += new System.EventHandler(this.btnAgregarCompra_Click);
+            this.btnAgregarProductos.BackColor = System.Drawing.Color.Peru;
+            this.btnAgregarProductos.FlatAppearance.BorderSize = 0;
+            this.btnAgregarProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarProductos.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Bold);
+            this.btnAgregarProductos.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarProductos.Location = new System.Drawing.Point(23, 383);
+            this.btnAgregarProductos.Name = "btnAgregarProductos";
+            this.btnAgregarProductos.Size = new System.Drawing.Size(108, 33);
+            this.btnAgregarProductos.TabIndex = 26;
+            this.btnAgregarProductos.Text = "Agregar productos";
+            this.btnAgregarProductos.UseVisualStyleBackColor = false;
+            this.btnAgregarProductos.Click += new System.EventHandler(this.btnAgregarProductos_Click_1);
             // 
             // nudCantidad
             // 
@@ -388,6 +388,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(641, 218);
@@ -395,7 +396,6 @@
             this.btnCancelar.Size = new System.Drawing.Size(117, 30);
             this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Eliminar Compra";
-            this.btnCancelar.BackColor = System.Drawing.Color.LightCoral;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -437,14 +437,14 @@
             // 
             this.dgvDetalleCompras.AllowUserToDeleteRows = false;
             this.dgvDetalleCompras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetalleCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDetalleCompras.Location = new System.Drawing.Point(8, 55);
             this.dgvDetalleCompras.Name = "dgvDetalleCompras";
@@ -541,7 +541,7 @@
         private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.ComboBox cbProveedor;
         private System.Windows.Forms.ComboBox cbMaterial;
-        private System.Windows.Forms.Button btnAgregarCompra;
+        private System.Windows.Forms.Button btnAgregarProductos;
         private System.Windows.Forms.TextBox txtTotalCompra;
         private System.Windows.Forms.Label lblTotalCompra;
         private System.Windows.Forms.Label lblDetallesCompra;

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Vista.Inventario
 {
@@ -46,7 +47,13 @@ namespace Vista.Inventario
         {
             MostrarInventario();
             CargarComboBoxCategorias();
+            DesactivarCopiarPegar(this);
             btnGuardarCambios.Visible = false;
+            txtMaterial.TabIndex = 1;
+            cbCategorias.TabIndex = 2;
+            txtCantidad.TabIndex = 3;
+            cbUnidadMedida.TabIndex = 4;
+            btnGuardar.TabIndex = 5;
         }
 
         private void CargarComboBoxCategorias()
@@ -91,6 +98,54 @@ namespace Vista.Inventario
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Validar nombre del material
+            if (string.IsNullOrWhiteSpace(txtMaterial.Text))
+            {
+                MessageBox.Show("Ingrese el nombre del material.");
+                txtMaterial.Focus();
+                return;
+            }
+
+            // Validar unidad de medida
+            if (string.IsNullOrWhiteSpace(cbUnidadMedida.Text))
+            {
+                MessageBox.Show("Ingrese la unidad de medida.");
+                cbUnidadMedida.Focus();
+                return;
+            }
+
+            // Validar categoría
+            if (cbCategorias.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione una categoría.");
+                cbCategorias.Focus();
+                return;
+            }
+
+            // Validar stock inicial
+            if (string.IsNullOrWhiteSpace(txtCantidad.Text))
+            {
+                MessageBox.Show("Ingrese el stock inicial.");
+                txtCantidad.Focus();
+                return;
+            }
+
+            // Validar que el stock sea numérico
+            if (!int.TryParse(txtCantidad.Text, out int stock))
+            {
+                MessageBox.Show("El stock inicial debe ser un número.");
+                txtCantidad.Focus();
+                return;
+            }
+            // Validar que no sea negativo
+            if (stock < 0)
+            {
+                MessageBox.Show("El stock inicial no puede ser negativo.");
+                txtCantidad.Focus();
+                return;
+            }
+
+
             //INSERT
             Material material = new Material();
 
@@ -231,6 +286,21 @@ namespace Vista.Inventario
             btnGuardar.Visible = true;
 
             BloquearCampos();
+        }
+        private void DesactivarCopiarPegar(Control control)
+        {
+            foreach (Control elemento in control.Controls)
+            {
+                if (elemento is TextBox)
+                {
+                    ((TextBox)elemento).ShortcutsEnabled = false;
+                }
+
+                if (elemento.HasChildren)
+                {
+                    DesactivarCopiarPegar(elemento);
+                }
+            }
         }
     }
 }

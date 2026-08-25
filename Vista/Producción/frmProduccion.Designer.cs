@@ -40,7 +40,6 @@ namespace Vista.Producción
             this.lblRegistrados = new System.Windows.Forms.Label();
             this.pnlContenedorTabla = new System.Windows.Forms.Panel();
             this.dgvProduccion = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblMensajeInformativoPrincipal = new System.Windows.Forms.Label();
             this.pbPendientes = new System.Windows.Forms.PictureBox();
@@ -101,9 +100,9 @@ namespace Vista.Producción
             this.txtBuscar.Size = new System.Drawing.Size(488, 29);
             this.txtBuscar.TabIndex = 13;
             this.txtBuscar.Text = "Buscar por código o nombre de cliente...";
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.txtBuscar.Enter += new System.EventHandler(this.txtBuscar_Enter);
             this.txtBuscar.Leave += new System.EventHandler(this.txtBuscar_Leave);
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // pbTotalTrabajos
             // 
@@ -179,7 +178,6 @@ namespace Vista.Producción
             // 
             this.pnlContenedorTabla.BackColor = System.Drawing.Color.White;
             this.pnlContenedorTabla.Controls.Add(this.dgvProduccion);
-            this.pnlContenedorTabla.Controls.Add(this.btnEliminar);
             this.pnlContenedorTabla.Controls.Add(this.btnEditar);
             this.pnlContenedorTabla.Location = new System.Drawing.Point(29, 268);
             this.pnlContenedorTabla.Margin = new System.Windows.Forms.Padding(2);
@@ -204,20 +202,6 @@ namespace Vista.Producción
             this.dgvProduccion.ReadOnly = true;
             this.dgvProduccion.Size = new System.Drawing.Size(1011, 258);
             this.dgvProduccion.TabIndex = 3;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.LightGray;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(0)))), ((int)(((byte)(10)))));
-            this.btnEliminar.Location = new System.Drawing.Point(253, 288);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(219, 40);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnEditar
             // 
@@ -444,7 +428,6 @@ namespace Vista.Producción
         private System.Windows.Forms.Label lblFinalizados;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label lblAdministrador;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvProduccion;
     }
 }

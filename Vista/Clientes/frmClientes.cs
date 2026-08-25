@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
 
 namespace Vista.Pedidos
 {
@@ -84,6 +85,7 @@ namespace Vista.Pedidos
             MostrarClientes();
             MostrarClientes2();
             ActualizarEstadisticas();
+            DesactivarCopiarPegar(this);
 
             pnlRegistroClienteIndividual.Visible = true;
             pnlRegistroClienteCorporativo.Visible = false;
@@ -146,6 +148,41 @@ namespace Vista.Pedidos
 
         private void btnGuardarIndividual_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+            {
+                return;
+            }
+
+            if (txtDUI.Text.Length != 10 || txtDUI.Text[8] != '-')
+            {
+                MessageBox.Show("El DUI debe tener el formato 12345678-9.");
+                return;
+            }
+
+            if (txtTelefono.Text.Length != 9 || txtTelefono.Text[4] != '-')
+            {
+                MessageBox.Show("El teléfono debe tener el formato 1234-5678.");
+                return;
+            }
+
+            // Validar correo
+            try
+            {
+                MailAddress correo = new MailAddress(txtCorreo.Text);
+
+                if (correo.Address != txtCorreo.Text)
+                {
+                    MessageBox.Show("Ingrese un correo válido.");
+                    return;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ingrese un correo válido.");
+                return;
+            }
+
+
             DbCliente cliente = new DbCliente();
 
             cliente.TipoCliente1 = 2;
@@ -177,8 +214,43 @@ namespace Vista.Pedidos
 
         private void btnGuardarCorporativo_Click(object sender, EventArgs e)
         {
-            DbCliente cliente = new DbCliente();
+            if (!ValidarCampos())
+            {
+                return;
+            }
 
+            if (txtNIT.Text.Length != 14)
+            {
+                MessageBox.Show("El NIT debe tener 14 números.");
+                return;
+            }
+
+            if (txtTelefono.Text.Length != 9 || txtTelefono.Text[4] != '-')
+            {
+                MessageBox.Show("El teléfono debe tener el formato 1234-5678.");
+                return;
+            }
+
+            // Validar correo
+            try
+            {
+                MailAddress correo = new MailAddress(txtCorreo.Text);
+
+                if (correo.Address != txtCorreo.Text)
+                {
+                    MessageBox.Show("Ingrese un correo válido.");
+                    return;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ingrese un correo válido.");
+                return;
+            }
+
+
+            DbCliente cliente = new DbCliente();
+           
             cliente.TipoCliente1 = 1;
             cliente.Identificador11 = txtNombreEmpresa.Text;
             cliente.Identificador21 = txtNombreEncargado.Text;
@@ -190,6 +262,7 @@ namespace Vista.Pedidos
 
             if (cliente.InsertarClienteCorporativo())
             {
+
                 MessageBox.Show("Cliente corporativo registrado correctamente.","Registro exitoso",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                 MostrarClientes();
@@ -387,7 +460,7 @@ namespace Vista.Pedidos
             // Actualizar en la base de datos
             if (cliente.ActualizarCliente())
             {
-                MessageBox.Show("Cliente actualizado correctamente.","ActualizaciÃ³n exitosa",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Cliente actualizado correctamente.","Actualización exitosa",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                 // Recargar la tabla correspondiente del tipo de cliente
                 if (tipoClienteSeleccionado == 1)
@@ -408,19 +481,190 @@ namespace Vista.Pedidos
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        //-------------------------------------------------VALIDACIONES-----------------------------------------------------------------------//
+
+        private bool ValidarCampos()
         {
+            // Validar que haya seleccionado un tipo de cliente
+            if (cbTipoCliente.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de cliente.");
+                cbTipoCliente.Focus();
+                return false;
+            }
+
+            // PERSONA NATURAL
+            if (cbTipoCliente.Text == "Persona Natural")
+            {
+                if (string.IsNullOrWhiteSpace(txtNombres.Text))
+                {
+                    MessageBox.Show("Debe ingresar el nombre del cliente.");
+                    txtNombres.Focus();
+                    return false;
+                }
+                if (string.IsNullOrWhiteSpace(txtApellidos.Text))
+                {
+                    MessageBox.Show("Debe ingresar los apellidos del cliente.");
+                    txtApellidos.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtDUI.Text))
+                {
+                    MessageBox.Show("Debe ingresar el DUI del ciente.");
+                    txtDUI.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+                {
+                    MessageBox.Show("Debe ingresar el teléfono del cliente.");
+                    txtTelefono.Focus();
+                    return false;
+                }
+
+
+                if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+                {
+                    MessageBox.Show("Debe ingresar el Correo del cliente.");
+                    txtCorreo.Focus();
+                    return false;
+                }
+                if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+                {
+                    MessageBox.Show("Debe ingresar la dirección del cliente.");
+                    txtDireccion.Focus();
+                    return false;
+                }
+            }
+
+            // EMPRESA
+            if (cbTipoCliente.Text == "Empresa")
+            {
+                if (string.IsNullOrWhiteSpace(txtNombreEmpresa.Text))
+                {
+                    MessageBox.Show("Debe ingresar el nombre de la empresa.");
+                    txtNombreEmpresa.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtNombreEncargado.Text))
+                {
+                    MessageBox.Show("Debe ingresar el nombre del encargado.");
+                    txtNombreEncargado.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtNIT.Text))
+                {
+                    MessageBox.Show("Debe ingresar el documento de la empresa.");
+                    txtNIT.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+                {
+                    MessageBox.Show("Debe ingresar el teléfono.");
+                    txtTelefono.Focus();
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+                {
+                    MessageBox.Show("Debe ingresar el Correo.");
+                    txtCorreo.Focus();
+                    return false;
+                }
+                if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+                {
+                    MessageBox.Show("Debe ingresar la dirección de la empresa.");
+                    txtCorreo.Focus();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+        private void txtDUI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsDigit(e.KeyChar) && txtDUI.Text.Length >= 10)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNIT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsDigit(e.KeyChar) && txtNIT.Text.Length >= 14)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (char.IsDigit(e.KeyChar) && txtTelefono.Text.Length >= 9)
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
 
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
         {
+            string texto = txtTelefono.Text.Replace("-", "");
 
+            if (texto.Length > 4)
+            {
+                txtTelefono.Text = texto.Insert(4, "-");
+                txtTelefono.SelectionStart = txtTelefono.Text.Length;
+            }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtDUI_TextChanged(object sender, EventArgs e)
         {
+            string texto = txtDUI.Text.Replace("-", "");
 
+            if (texto.Length > 8)
+            {
+                txtDUI.Text = texto.Insert(8, "-");
+                txtDUI.SelectionStart = txtDUI.Text.Length;
+            }
+        }
+
+        private void DesactivarCopiarPegar(Control control)
+        {
+            foreach (Control elemento in control.Controls)
+            {
+                if (elemento is TextBox)
+                {
+                    ((TextBox)elemento).ShortcutsEnabled = false;
+                }
+
+                if (elemento.HasChildren)
+                {
+                    DesactivarCopiarPegar(elemento);
+                }
+            }
         }
     }
 }

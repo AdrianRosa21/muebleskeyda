@@ -3,12 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Xml.Linq;
 
 namespace Vista.Compras
 {
@@ -68,6 +69,7 @@ namespace Vista.Compras
             CargarComboBoxMateriales();
             CargarComboBoxProveedores();
             ConfigurarDetalleCompra();
+            DesactivarCopiarPegar(this);
 
             dtpFechaDeCompra.Value = DateTime.Now;
 
@@ -75,6 +77,17 @@ namespace Vista.Compras
             nudCantidad.Value = 1;
 
             txtTotalCompra.Text = "0.00";
+            //Navegar con TabIndex
+
+            cbProveedor.TabIndex = 0;
+            dtpFechaDeCompra.TabIndex = 1;
+            cbMaterial.TabIndex = 2;
+            nudCantidad.TabIndex = 3;
+            txtPrecioUnitario.TabIndex = 4;
+            btnAgregarProductos.TabIndex = 5;
+            btnActualizar.TabIndex = 6;
+            // No se podra seleccionar fechas futuras
+            dtpFechaDeCompra.MaxDate = DateTime.Today;
         }
         private void MostrarCompras()
         {
@@ -204,7 +217,7 @@ namespace Vista.Compras
         }
 
 
-        private void btnAgregarCompra_Click(object sender, EventArgs e)
+        private void btnAgregarProductos_Click_1(object sender, EventArgs e)
         {
             if (cbMaterial.SelectedIndex == -1)
             {
@@ -219,9 +232,7 @@ namespace Vista.Compras
                 return;
             }
 
-            if (!decimal.TryParse(
-                txtPrecioUnitario.Text,
-                out decimal precio))
+            if (!decimal.TryParse(txtPrecioUnitario.Text,out decimal precio))
             {
                 MessageBox.Show("Ingresa un precio válido.");
                 txtPrecioUnitario.Focus();
@@ -230,40 +241,41 @@ namespace Vista.Compras
 
             if (precio <= 0)
             {
-                MessageBox.Show(
-                    "El precio unitario debe ser mayor que 0.");
+                MessageBox.Show("El precio unitario debe ser mayor que 0.");
                 return;
             }
 
             int cantidad = Convert.ToInt32(nudCantidad.Value);
 
             if (cantidad <= 0)
-            {MessageBox.Show("La cantidad debe ser mayor que 0.");
-            return;
+            {
+                MessageBox.Show("La cantidad debe ser mayor que 0.");
+                return;
             }
 
-           int idMaterial = Convert.ToInt32(cbMaterial.SelectedValue);
+            int idMaterial = Convert.ToInt32(cbMaterial.SelectedValue);
 
             // Verificar si ya está en la lista
-             foreach (DetalleCompraMaterial detalle
-             in detallesTemporales)
-             {
+            foreach (DetalleCompraMaterial detalle
+            in detallesTemporales)
+            {
                 if (detalle.IdMaterial1 == idMaterial)
-                {MessageBox.Show("Este material ya está agregado.");
+                {
+                    MessageBox.Show("Este material ya está agregado.");
 
-                 return;
+                    return;
                 }
-             }
-             string nombreMaterial = cbMaterial.Text;
+            }
+            string nombreMaterial = cbMaterial.Text;
 
             // Crear detalle
-            DetalleCompraMaterial nuevoDetalle = new DetalleCompraMaterial(0,idCompraSeleccionada,idMaterial,cantidad,precio);
+            DetalleCompraMaterial nuevoDetalle = new DetalleCompraMaterial(0, idCompraSeleccionada, idMaterial, cantidad, precio);
 
             // Agregar a la lista temporal
-               detallesTemporales.Add(nuevoDetalle);
+            detallesTemporales.Add(nuevoDetalle);
 
             // Mostrar en el DataGridView
-             MostrarDetallesTemporales();
+            MostrarDetallesTemporales();
 
             // Limpiar controles
             cbMaterial.SelectedIndex = -1;
@@ -344,7 +356,14 @@ namespace Vista.Compras
             // Validar que haya materiales
             if (dgvDetalleCompras.Rows.Count == 0)
             {
-                MessageBox.Show("Agrega al menos un material.");
+                MessageBox.Show("Agrega al menos un material.","Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // Validar fecha
+            if (dtpFechaDeCompra.Value == null)
+            {
+                MessageBox.Show("Debe ingresar la fecha de la compra.","Validación",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                dtpFechaDeCompra.Focus();
                 return;
             }
 
@@ -362,8 +381,7 @@ namespace Vista.Compras
 
             if (idCompra == 0)
             {
-                MessageBox.Show(
-                    "No se pudo registrar la compra.");
+                MessageBox.Show( "No se pudo registrar la compra.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 return;
             }
@@ -615,6 +633,23 @@ namespace Vista.Compras
                 }
             }
         }
+
+        private void DesactivarCopiarPegar(Control control)
+        {
+            foreach (Control elemento in control.Controls)
+            {
+                if (elemento is TextBox)
+                {
+                    ((TextBox)elemento).ShortcutsEnabled = false;
+                }
+
+                if (elemento.HasChildren)
+                {
+                    DesactivarCopiarPegar(elemento);
+                }
+            }
+        }
+
     }
 
 }
