@@ -1,4 +1,4 @@
-namespace Vista.Pedidos
+ï»¿namespace Vista.Pedidos
 {
     partial class frmPedidos
     {
@@ -95,7 +95,7 @@ namespace Vista.Pedidos
             this.lblSubTexto.Name = "lblSubTexto";
             this.lblSubTexto.Size = new System.Drawing.Size(276, 20);
             this.lblSubTexto.TabIndex = 1;
-            this.lblSubTexto.Text = "Administración y registro de pedidos.";
+            this.lblSubTexto.Text = "AdministraciÃ³n y registro de pedidos.";
             // 
             // btnCamcelar
             // 
@@ -217,7 +217,7 @@ namespace Vista.Pedidos
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPedidosRegistrados.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvPedidosRegistrados.RowHeadersVisible = false;
-            this.dgvPedidosRegistrados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvPedidosRegistrados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvPedidosRegistrados.Size = new System.Drawing.Size(794, 226);
             this.dgvPedidosRegistrados.TabIndex = 0;
             this.dgvPedidosRegistrados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidosRegistrados_CellClick);
@@ -308,7 +308,7 @@ namespace Vista.Pedidos
             this.lblMensajeInformativoPedidos.Name = "lblMensajeInformativoPedidos";
             this.lblMensajeInformativoPedidos.Size = new System.Drawing.Size(274, 36);
             this.lblMensajeInformativoPedidos.TabIndex = 0;
-            this.lblMensajeInformativoPedidos.Text = "Gestión de Pedidos";
+            this.lblMensajeInformativoPedidos.Text = "GestiÃ³n de Pedidos";
             // 
             // pnlDEtalles
             // 

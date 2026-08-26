@@ -769,7 +769,7 @@
             this.dgvClientesIndividuales.Name = "dgvClientesIndividuales";
             this.dgvClientesIndividuales.ReadOnly = true;
             this.dgvClientesIndividuales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvClientesIndividuales.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvClientesIndividuales.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvClientesIndividuales.Size = new System.Drawing.Size(795, 368);
             this.dgvClientesIndividuales.TabIndex = 0;
             this.dgvClientesIndividuales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientesIndividuales_CellClick);
