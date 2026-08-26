@@ -28,6 +28,12 @@ namespace Vista.Producción
             txtCliente.Enabled = false;
             txtCodigoProduccion.Enabled = false;
             txtMuebleRealizar.Enabled = false;
+
+            //Navegacion con la tecla TAB
+            dtpFechaEntrega.TabIndex = 1;
+            nudProgreso.TabIndex = 2;
+            btnCancelar.TabIndex = 3;
+            btnGuardarCambios.TabIndex = 4;
         }
 
         private void CargarProduccion()
@@ -113,6 +119,13 @@ namespace Vista.Producción
 
         private void btnGuardarCambios_Click_1(object sender, EventArgs e)
         {
+            if (dtpFechaEntrega.Value.Date < DateTime.Today)
+            {
+                MessageBox.Show("La fecha no puede ser anterior a la fecha actual.");
+                dtpFechaEntrega.Focus();
+                return;
+            }
+
             DbProducción produccion = new DbProducción();
 
             produccion.IdProduccion1 = idProduccion;

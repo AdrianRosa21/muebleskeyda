@@ -28,8 +28,9 @@ namespace Vista.Pedidos
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblSubTexto = new System.Windows.Forms.Label();
             this.btnCamcelar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -62,7 +63,7 @@ namespace Vista.Pedidos
             this.pnlTituloDetallesPedido = new System.Windows.Forms.Panel();
             this.lblDatosPedido = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnDeatllePedido = new System.Windows.Forms.Button();
+            this.btnDetallePedido = new System.Windows.Forms.Button();
             this.btnSeleccionarCliente = new System.Windows.Forms.Button();
             this.lblMuebleARealizar = new System.Windows.Forms.Label();
             this.lblFechaEntrega = new System.Windows.Forms.Label();
@@ -143,10 +144,10 @@ namespace Vista.Pedidos
             this.pnlHeader.Controls.Add(this.lblMensajeInformativoPedidos);
             this.pnlHeader.Controls.Add(this.pnlDEtalles);
             this.pnlHeader.Controls.Add(this.pnlPedidaDeDatos);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Size = new System.Drawing.Size(1102, 627);
             this.pnlHeader.TabIndex = 0;
             // 
@@ -184,19 +185,39 @@ namespace Vista.Pedidos
             // 
             // dgvPedidosRegistrados
             // 
+            this.dgvPedidosRegistrados.AllowUserToDeleteRows = false;
+            this.dgvPedidosRegistrados.AllowUserToResizeColumns = false;
+            this.dgvPedidosRegistrados.AllowUserToResizeRows = false;
+            this.dgvPedidosRegistrados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPedidosRegistrados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPedidosRegistrados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPedidosRegistrados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvPedidosRegistrados.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidosRegistrados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvPedidosRegistrados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedidosRegistrados.GridColor = System.Drawing.Color.Black;
             this.dgvPedidosRegistrados.Location = new System.Drawing.Point(11, 34);
             this.dgvPedidosRegistrados.Name = "dgvPedidosRegistrados";
             this.dgvPedidosRegistrados.ReadOnly = true;
-            this.dgvPedidosRegistrados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPedidosRegistrados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Peru;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPedidosRegistrados.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvPedidosRegistrados.RowHeadersVisible = false;
+            this.dgvPedidosRegistrados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvPedidosRegistrados.Size = new System.Drawing.Size(794, 226);
             this.dgvPedidosRegistrados.TabIndex = 0;
             this.dgvPedidosRegistrados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedidosRegistrados_CellClick);
@@ -323,19 +344,27 @@ namespace Vista.Pedidos
             // 
             // dgvDetallesDePedido
             // 
+            this.dgvDetallesDePedido.AllowUserToResizeColumns = false;
+            this.dgvDetallesDePedido.AllowUserToResizeRows = false;
+            this.dgvDetallesDePedido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetallesDePedido.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetallesDePedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDetallesDePedido.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetallesDePedido.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvDetallesDePedido.GridColor = System.Drawing.Color.Black;
             this.dgvDetallesDePedido.Location = new System.Drawing.Point(11, 35);
             this.dgvDetallesDePedido.Name = "dgvDetallesDePedido";
             this.dgvDetallesDePedido.ReadOnly = true;
-            this.dgvDetallesDePedido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetallesDePedido.RowHeadersVisible = false;
+            this.dgvDetallesDePedido.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvDetallesDePedido.Size = new System.Drawing.Size(793, 190);
             this.dgvDetallesDePedido.TabIndex = 0;
             // 
@@ -355,7 +384,7 @@ namespace Vista.Pedidos
             this.pnlPedidaDeDatos.Controls.Add(this.dtpFechaPedido);
             this.pnlPedidaDeDatos.Controls.Add(this.pnlTituloDetallesPedido);
             this.pnlPedidaDeDatos.Controls.Add(this.btnGuardar);
-            this.pnlPedidaDeDatos.Controls.Add(this.btnDeatllePedido);
+            this.pnlPedidaDeDatos.Controls.Add(this.btnDetallePedido);
             this.pnlPedidaDeDatos.Controls.Add(this.btnSeleccionarCliente);
             this.pnlPedidaDeDatos.Controls.Add(this.btnCamcelar);
             this.pnlPedidaDeDatos.Controls.Add(this.btnAgregar);
@@ -393,6 +422,7 @@ namespace Vista.Pedidos
             this.txtMuebleaRealizar.Name = "txtMuebleaRealizar";
             this.txtMuebleaRealizar.Size = new System.Drawing.Size(187, 20);
             this.txtMuebleaRealizar.TabIndex = 35;
+            this.txtMuebleaRealizar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMuebleaRealizar_KeyPress);
             // 
             // cbEstado
             // 
@@ -424,6 +454,7 @@ namespace Vista.Pedidos
             // 
             // dtpFechaPedido
             // 
+            this.dtpFechaPedido.Enabled = false;
             this.dtpFechaPedido.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaPedido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaPedido.Location = new System.Drawing.Point(129, 76);
@@ -465,16 +496,16 @@ namespace Vista.Pedidos
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnDeatllePedido
+            // btnDetallePedido
             // 
-            this.btnDeatllePedido.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeatllePedido.Location = new System.Drawing.Point(20, 330);
-            this.btnDeatllePedido.Name = "btnDeatllePedido";
-            this.btnDeatllePedido.Size = new System.Drawing.Size(178, 24);
-            this.btnDeatllePedido.TabIndex = 27;
-            this.btnDeatllePedido.Text = "Medidas del producto";
-            this.btnDeatllePedido.UseVisualStyleBackColor = true;
-            this.btnDeatllePedido.Click += new System.EventHandler(this.btnDeatllePedido_Click);
+            this.btnDetallePedido.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetallePedido.Location = new System.Drawing.Point(20, 330);
+            this.btnDetallePedido.Name = "btnDetallePedido";
+            this.btnDetallePedido.Size = new System.Drawing.Size(178, 24);
+            this.btnDetallePedido.TabIndex = 27;
+            this.btnDetallePedido.Text = "Medidas del producto";
+            this.btnDetallePedido.UseVisualStyleBackColor = true;
+            this.btnDetallePedido.Click += new System.EventHandler(this.btnDeatllePedido_Click);
             // 
             // btnSeleccionarCliente
             // 
@@ -590,7 +621,7 @@ namespace Vista.Pedidos
         private System.Windows.Forms.Button btnSeleccionarCliente;
         private System.Windows.Forms.PictureBox pbxBuscar;
         private System.Windows.Forms.DataGridView dgvDetallesDePedido;
-        private System.Windows.Forms.Button btnDeatllePedido;
+        private System.Windows.Forms.Button btnDetallePedido;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label lblAdministrador;
         private System.Windows.Forms.Button btnGuardar;

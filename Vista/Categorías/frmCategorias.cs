@@ -48,6 +48,17 @@ namespace Vista.Categorías
             DesactivarCopiarPegar(this);
             btnGuardarCambios.Visible = false;
 
+            //Maximo de caracteres admitidos
+            txtCategoria.MaxLength = 50;
+            txtDescripcion.MaxLength =200;
+
+            //Navegar con la tecla Tab
+            txtCategoria.TabIndex = 1;
+            txtDescripcion.TabIndex = 2;
+            cbEstado.TabIndex = 3;
+            btnGuardar.TabIndex = 4;
+            btnEditar.TabIndex = 5;
+
 
         }
 
@@ -61,6 +72,27 @@ namespace Vista.Categorías
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtCategoria.Text))
+            {
+                MessageBox.Show("Debe ingresar el nombre de la categoría.");
+                txtCategoria.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                MessageBox.Show("Debe ingresar la descripción de la categoría.");
+                txtDescripcion.Focus();
+                return;
+            }
+
+            if (cbEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar el estado de la categoría.");
+                cbEstado.Focus();
+                return;
+            }
+
             Categorias categoria = new Categorias();
 
             categoria.Nombre_Categoria1 = txtCategoria.Text;
@@ -73,39 +105,6 @@ namespace Vista.Categorías
             MostrarCategorias();
         }
         private int idCategoriaSeleccionada = 0;
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (idCategoriaSeleccionada == 0)
-            {
-                MessageBox.Show("No hay ninguna categoría seleccionada.");
-                return;
-            }
-
-            DialogResult resultado = MessageBox.Show(
-                "¿Está seguro de eliminar esta categoría?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
-
-            if (resultado == DialogResult.Yes)
-            {
-                Categorias categoria = new Categorias();
-
-                categoria.IdCategoria1 = idCategoriaSeleccionada;
-
-                if (categoria.EliminarCategoria())
-                {
-                    MessageBox.Show("Categoría eliminada correctamente.");
-
-                    MostrarCategorias();
-
-                    idCategoriaSeleccionada = 0;
-                }
-            }
-            MostrarCategorias();
-        
-    }
-
        
 
         private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -221,6 +220,30 @@ namespace Vista.Categorías
                 {
                     DesactivarCopiarPegar(elemento);
                 }
+            }
+        }
+
+        private void txtCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //letterOrDigith comprueba si es letra o numero
+            // IsControl permite espacios
+            // ´ ´solo se permite un espacio, no mas 
+            // tmb permite ","
+            //permite "."
+            // permite "-"
+            // y permite ()
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' &&  e.KeyChar != ',' &&  e.KeyChar != '.' &&  e.KeyChar != '-' && e.KeyChar != '(' &&  e.KeyChar != ')')
+            {
+                e.Handled = true;
             }
         }
     }

@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDetalleVentas = new System.Windows.Forms.Label();
+            this.dgvDetalleDeVenta = new System.Windows.Forms.DataGridView();
             this.pbxBuscar = new System.Windows.Forms.PictureBox();
             this.pnlBarraSuperior = new System.Windows.Forms.Panel();
             this.lblAdministrador = new System.Windows.Forms.Label();
@@ -60,20 +63,17 @@
             this.lblSubTexto = new System.Windows.Forms.Label();
             this.lblMensajeInformativoPrincipal = new System.Windows.Forms.Label();
             this.pnlTablaContenido = new System.Windows.Forms.Panel();
-            this.dgvVentas = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvDetalleDeVenta = new System.Windows.Forms.DataGridView();
-            this.lblDetalleVentas = new System.Windows.Forms.Label();
             this.lblRegistroVentas = new System.Windows.Forms.Label();
+            this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.pnlHeader.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleDeVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBuscar)).BeginInit();
             this.pnlBarraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPerfil)).BeginInit();
             this.pnlPedidaDeDatos.SuspendLayout();
             this.pnlTablaContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleDeVenta)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -87,12 +87,60 @@
             this.pnlHeader.Controls.Add(this.lblSubTexto);
             this.pnlHeader.Controls.Add(this.lblMensajeInformativoPrincipal);
             this.pnlHeader.Controls.Add(this.pnlTablaContenido);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Size = new System.Drawing.Size(1102, 627);
             this.pnlHeader.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(235)))));
+            this.panel1.Controls.Add(this.lblDetalleVentas);
+            this.panel1.Controls.Add(this.dgvDetalleDeVenta);
+            this.panel1.Location = new System.Drawing.Point(37, 431);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(766, 179);
+            this.panel1.TabIndex = 4;
+            // 
+            // lblDetalleVentas
+            // 
+            this.lblDetalleVentas.AutoSize = true;
+            this.lblDetalleVentas.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetalleVentas.Location = new System.Drawing.Point(14, 6);
+            this.lblDetalleVentas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDetalleVentas.Name = "lblDetalleVentas";
+            this.lblDetalleVentas.Size = new System.Drawing.Size(166, 22);
+            this.lblDetalleVentas.TabIndex = 28;
+            this.lblDetalleVentas.Text = "Detalle de la venta.";
+            // 
+            // dgvDetalleDeVenta
+            // 
+            this.dgvDetalleDeVenta.AllowUserToResizeColumns = false;
+            this.dgvDetalleDeVenta.AllowUserToResizeRows = false;
+            this.dgvDetalleDeVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDetalleDeVenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDetalleDeVenta.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDetalleDeVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleDeVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvDetalleDeVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDetalleDeVenta.GridColor = System.Drawing.Color.Black;
+            this.dgvDetalleDeVenta.Location = new System.Drawing.Point(14, 37);
+            this.dgvDetalleDeVenta.Name = "dgvDetalleDeVenta";
+            this.dgvDetalleDeVenta.RowHeadersVisible = false;
+            this.dgvDetalleDeVenta.Size = new System.Drawing.Size(741, 122);
+            this.dgvDetalleDeVenta.TabIndex = 0;
             // 
             // pbxBuscar
             // 
@@ -153,6 +201,8 @@
             // 
             // pnlPedidaDeDatos
             // 
+            this.pnlPedidaDeDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidaDeDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
             this.pnlPedidaDeDatos.Controls.Add(this.btnAgregarProductos);
             this.pnlPedidaDeDatos.Controls.Add(this.lblAgregarProductos);
@@ -177,7 +227,6 @@
             this.pnlPedidaDeDatos.Location = new System.Drawing.Point(833, 107);
             this.pnlPedidaDeDatos.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPedidaDeDatos.Name = "pnlPedidaDeDatos";
-            this.pnlPedidaDeDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidaDeDatos.Size = new System.Drawing.Size(241, 399);
             this.pnlPedidaDeDatos.TabIndex = 2;
             // 
@@ -220,6 +269,7 @@
             // txtTotalPagar
             // 
             this.txtTotalPagar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotalPagar.Enabled = false;
             this.txtTotalPagar.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalPagar.Location = new System.Drawing.Point(107, 334);
             this.txtTotalPagar.Margin = new System.Windows.Forms.Padding(2);
@@ -253,6 +303,7 @@
             // txtIVA
             // 
             this.txtIVA.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIVA.Enabled = false;
             this.txtIVA.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIVA.Location = new System.Drawing.Point(88, 295);
             this.txtIVA.Margin = new System.Windows.Forms.Padding(2);
@@ -294,6 +345,7 @@
             // txtSubTotal
             // 
             this.txtSubTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSubTotal.Enabled = false;
             this.txtSubTotal.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSubTotal.Location = new System.Drawing.Point(85, 267);
             this.txtSubTotal.Margin = new System.Windows.Forms.Padding(2);
@@ -431,75 +483,17 @@
             // 
             // pnlTablaContenido
             // 
+            this.pnlTablaContenido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTablaContenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(235)))));
             this.pnlTablaContenido.Controls.Add(this.lblRegistroVentas);
             this.pnlTablaContenido.Controls.Add(this.dgvVentas);
             this.pnlTablaContenido.Location = new System.Drawing.Point(37, 102);
             this.pnlTablaContenido.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTablaContenido.Name = "pnlTablaContenido";
-            this.pnlTablaContenido.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTablaContenido.Size = new System.Drawing.Size(766, 317);
             this.pnlTablaContenido.TabIndex = 3;
-            // 
-            // dgvVentas
-            // 
-            this.dgvVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvVentas.Location = new System.Drawing.Point(14, 30);
-            this.dgvVentas.Name = "dgvVentas";
-            this.dgvVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvVentas.Size = new System.Drawing.Size(741, 269);
-            this.dgvVentas.TabIndex = 0;
-            this.dgvVentas.SelectionChanged += new System.EventHandler(this.dgvVentas_SelectionChanged);
-            this.dgvVentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentas_CellDoubleClick);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(235)))));
-            this.panel1.Controls.Add(this.lblDetalleVentas);
-            this.panel1.Controls.Add(this.dgvDetalleDeVenta);
-            this.panel1.Location = new System.Drawing.Point(37, 431);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(766, 179);
-            this.panel1.TabIndex = 4;
-            // 
-            // dgvDetalleDeVenta
-            // 
-            this.dgvDetalleDeVenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleDeVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDetalleDeVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvDetalleDeVenta.Location = new System.Drawing.Point(14, 37);
-            this.dgvDetalleDeVenta.Name = "dgvDetalleDeVenta";
-            this.dgvDetalleDeVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDetalleDeVenta.Size = new System.Drawing.Size(741, 122);
-            this.dgvDetalleDeVenta.TabIndex = 0;
-            // 
-            // lblDetalleVentas
-            // 
-            this.lblDetalleVentas.AutoSize = true;
-            this.lblDetalleVentas.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetalleVentas.Location = new System.Drawing.Point(14, 6);
-            this.lblDetalleVentas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDetalleVentas.Name = "lblDetalleVentas";
-            this.lblDetalleVentas.Size = new System.Drawing.Size(166, 22);
-            this.lblDetalleVentas.TabIndex = 28;
-            this.lblDetalleVentas.Text = "Detalle de la venta.";
             // 
             // lblRegistroVentas
             // 
@@ -512,6 +506,34 @@
             this.lblRegistroVentas.Size = new System.Drawing.Size(168, 22);
             this.lblRegistroVentas.TabIndex = 29;
             this.lblRegistroVentas.Text = "Registro de Ventas.";
+            // 
+            // dgvVentas
+            // 
+            this.dgvVentas.AllowUserToResizeColumns = false;
+            this.dgvVentas.AllowUserToResizeRows = false;
+            this.dgvVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVentas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvVentas.GridColor = System.Drawing.Color.Black;
+            this.dgvVentas.Location = new System.Drawing.Point(14, 30);
+            this.dgvVentas.Name = "dgvVentas";
+            this.dgvVentas.RowHeadersVisible = false;
+            this.dgvVentas.Size = new System.Drawing.Size(741, 269);
+            this.dgvVentas.TabIndex = 0;
+            this.dgvVentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentas_CellDoubleClick);
+            this.dgvVentas.SelectionChanged += new System.EventHandler(this.dgvVentas_SelectionChanged);
             // 
             // frmVentas
             // 
@@ -526,6 +548,9 @@
             this.Load += new System.EventHandler(this.frmVentas_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleDeVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxBuscar)).EndInit();
             this.pnlBarraSuperior.ResumeLayout(false);
             this.pnlBarraSuperior.PerformLayout();
@@ -535,9 +560,6 @@
             this.pnlTablaContenido.ResumeLayout(false);
             this.pnlTablaContenido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleDeVenta)).EndInit();
             this.ResumeLayout(false);
 
         }

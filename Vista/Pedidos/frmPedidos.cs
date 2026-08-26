@@ -59,6 +59,12 @@ namespace Vista.Pedidos
                 MessageBox.Show("Ingresa el nombre del mueble.");
                 return;
             }
+
+            if (string.IsNullOrWhiteSpace(nudCantidad.Text))
+            {
+                MessageBox.Show("Ingrese la cantidad de productos que desea agregar.");
+                return;
+            }
             if (medidaLargo == "0" && medidaAncho == "0" && medidaAlto == "0")
             {
                 MessageBox.Show("Por favor ingresa las medidas del producto dando clic en 'Medidas del producto'.");
@@ -167,8 +173,25 @@ namespace Vista.Pedidos
             cbEstado.Items.Add("En proceso");
             cbEstado.Items.Add("Finalizado");
             cbEstado.SelectedIndex = 0;
+
+            //Maximo de caracteres admitidos
+            txtMuebleaRealizar.MaxLength = 150;
+
+
+            //Navegar con la tecla TAB
+            btnSeleccionarCliente.TabIndex = 1;
+            dtpFechaPedido.TabIndex= 2;
+            dtpFechaDeEntrega.TabIndex= 3;
+            cbEstado.TabIndex= 4;
+            txtMuebleaRealizar.TabIndex= 5;
+            nudCantidad.TabIndex= 6;
+            btnDetallePedido.TabIndex = 7;
+            btnAgregar.TabIndex= 8;
+            btnGuardar.TabIndex= 9;
+            btnCamcelar.TabIndex= 10;
         }
-    
+
+
         int idPedidoSeleccionado = 0;
         private void dgvPedidosRegistrados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -195,6 +218,30 @@ namespace Vista.Pedidos
                 
             dgvDetallesDePedido.DataSource = null;
             dgvDetallesDePedido.DataSource = DetallePedidos.CargarDetallesPorPedido(idPedidoSeleccionado);
+        }
+
+        private void DesactivarCopiarPegar(Control control)
+        {
+            foreach (Control elemento in control.Controls)
+            {
+                if (elemento is TextBox)
+                {
+                    ((TextBox)elemento).ShortcutsEnabled = false;
+                }
+
+                if (elemento.HasChildren)
+                {
+                    DesactivarCopiarPegar(elemento);
+                }
+            }
+        }
+        // Caracteres admitidos para el campo del mueble del pedido
+        private void txtMuebleaRealizar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -57,6 +57,9 @@ namespace Vista.Reportes
         {
             CargarReporteClientes();
             CargarReporteVentas();
+
+            dtFechaFin.MaxDate = DateTime.Today;
+            dtFechaInicio.MaxDate = DateTime.Today;
         }
 
       

@@ -30,9 +30,9 @@
         {
             this.pnlContenedorPrincipalInventario = new System.Windows.Forms.Panel();
             this.pnlPedidaDeDatos = new System.Windows.Forms.Panel();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.cbCategorias = new System.Windows.Forms.ComboBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.cbUnidadMedida = new System.Windows.Forms.ComboBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblMedida = new System.Windows.Forms.Label();
@@ -64,7 +64,6 @@
             this.lblMensajeInformativoPrincipal = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.dgvMateriales = new System.Windows.Forms.DataGridView();
-            this.btnGuardarCambios = new System.Windows.Forms.Button();
             this.pnlContenedorPrincipalInventario.SuspendLayout();
             this.pnlPedidaDeDatos.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -92,16 +91,17 @@
             this.pnlContenedorPrincipalInventario.Location = new System.Drawing.Point(-1, -1);
             this.pnlContenedorPrincipalInventario.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedorPrincipalInventario.Name = "pnlContenedorPrincipalInventario";
-            this.pnlContenedorPrincipalInventario.Size = new System.Drawing.Size(1117, 663);
+            this.pnlContenedorPrincipalInventario.Size = new System.Drawing.Size(1102, 627);
             this.pnlContenedorPrincipalInventario.TabIndex = 3;
             // 
             // pnlPedidaDeDatos
             // 
+            this.pnlPedidaDeDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlPedidaDeDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
             this.pnlPedidaDeDatos.Controls.Add(this.btnGuardarCambios);
             this.pnlPedidaDeDatos.Controls.Add(this.cbCategorias);
             this.pnlPedidaDeDatos.Controls.Add(this.btnGuardar);
-            this.pnlPedidaDeDatos.Controls.Add(this.btnEliminar);
             this.pnlPedidaDeDatos.Controls.Add(this.cbUnidadMedida);
             this.pnlPedidaDeDatos.Controls.Add(this.btnEditar);
             this.pnlPedidaDeDatos.Controls.Add(this.lblMedida);
@@ -111,12 +111,24 @@
             this.pnlPedidaDeDatos.Controls.Add(this.txtMaterial);
             this.pnlPedidaDeDatos.Controls.Add(this.lblMaterial);
             this.pnlPedidaDeDatos.Controls.Add(this.lblDatosMaterial);
-            this.pnlPedidaDeDatos.Location = new System.Drawing.Point(21, 117);
+            this.pnlPedidaDeDatos.Location = new System.Drawing.Point(6, 117);
             this.pnlPedidaDeDatos.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPedidaDeDatos.Name = "pnlPedidaDeDatos";
-            this.pnlPedidaDeDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlPedidaDeDatos.Size = new System.Drawing.Size(220, 413);
+            this.pnlPedidaDeDatos.Size = new System.Drawing.Size(220, 361);
             this.pnlPedidaDeDatos.TabIndex = 2;
+            // 
+            // btnGuardarCambios
+            // 
+            this.btnGuardarCambios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnGuardarCambios.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.btnGuardarCambios.Location = new System.Drawing.Point(116, 313);
+            this.btnGuardarCambios.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(86, 36);
+            this.btnGuardarCambios.TabIndex = 23;
+            this.btnGuardarCambios.Text = "Guardar";
+            this.btnGuardarCambios.UseVisualStyleBackColor = false;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
             // cbCategorias
             // 
@@ -139,19 +151,6 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnEliminar.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.btnEliminar.Location = new System.Drawing.Point(57, 353);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(98, 38);
-            this.btnEliminar.TabIndex = 20;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // cbUnidadMedida
             // 
@@ -207,6 +206,7 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(167, 19);
             this.txtCantidad.TabIndex = 6;
+            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // lblCantidad
             // 
@@ -239,6 +239,7 @@
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.Size = new System.Drawing.Size(167, 19);
             this.txtMaterial.TabIndex = 2;
+            this.txtMaterial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaterial_KeyPress);
             // 
             // lblMaterial
             // 
@@ -284,10 +285,10 @@
             this.pnlHeader.Controls.Add(this.pnlIndicador1);
             this.pnlHeader.Controls.Add(this.lblMensajeInformativoPrincipal);
             this.pnlHeader.Controls.Add(this.pnlPrincipal);
-            this.pnlHeader.Location = new System.Drawing.Point(1, 1);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Size = new System.Drawing.Size(1102, 627);
             this.pnlHeader.TabIndex = 0;
             // 
@@ -494,27 +495,25 @@
             // 
             // dgvMateriales
             // 
+            this.dgvMateriales.AllowUserToResizeColumns = false;
+            this.dgvMateriales.AllowUserToResizeRows = false;
+            this.dgvMateriales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMateriales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMateriales.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMateriales.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvMateriales.ColumnHeadersHeight = 30;
+            this.dgvMateriales.GridColor = System.Drawing.Color.Black;
             this.dgvMateriales.Location = new System.Drawing.Point(10, 6);
             this.dgvMateriales.Name = "dgvMateriales";
-            this.dgvMateriales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMateriales.ReadOnly = true;
+            this.dgvMateriales.RowHeadersWidth = 45;
+            this.dgvMateriales.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvMateriales.Size = new System.Drawing.Size(797, 371);
             this.dgvMateriales.TabIndex = 0;
             this.dgvMateriales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellClick);
             this.dgvMateriales.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMateriales_CellDoubleClick);
-            // 
-            // btnGuardarCambios
-            // 
-            this.btnGuardarCambios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnGuardarCambios.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.btnGuardarCambios.Location = new System.Drawing.Point(116, 313);
-            this.btnGuardarCambios.Margin = new System.Windows.Forms.Padding(2);
-            this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Size = new System.Drawing.Size(86, 36);
-            this.btnGuardarCambios.TabIndex = 23;
-            this.btnGuardarCambios.Text = "Guardar";
-            this.btnGuardarCambios.UseVisualStyleBackColor = false;
-            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
             // frmInventario
             // 
@@ -589,7 +588,6 @@
         private System.Windows.Forms.Label lblTotalInventario;
         private System.Windows.Forms.PictureBox pbPerfil;
         private System.Windows.Forms.Label lblAdministrador;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dgvMateriales;
         private System.Windows.Forms.ComboBox cbCategorias;

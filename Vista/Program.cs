@@ -25,7 +25,7 @@ namespace Vista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmProduccion());
+            Application.Run(new frmDashboard());
         }
     }
 }

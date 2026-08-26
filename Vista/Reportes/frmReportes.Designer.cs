@@ -63,13 +63,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvReporteVentas = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblFacturasEmitidas = new System.Windows.Forms.Label();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblVentasTotales = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lblVentasTotales = new System.Windows.Forms.Label();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.lblFacturasEmitidas = new System.Windows.Forms.Label();
             this.pnlBarraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPerfil)).BeginInit();
             this.pnlContenedorPrincipalInventario.SuspendLayout();
@@ -87,11 +87,11 @@
             this.pnlReportesVentas.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteVentas)).BeginInit();
-            this.tableLayoutPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBarraSuperior
@@ -247,10 +247,10 @@
             this.pnlHeader.Controls.Add(this.btnVentas);
             this.pnlHeader.Controls.Add(this.pnlReporteDeClientes);
             this.pnlHeader.Controls.Add(this.pnlReportesVentas);
-            this.pnlHeader.Location = new System.Drawing.Point(-1, 0);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Size = new System.Drawing.Size(1102, 627);
             this.pnlHeader.TabIndex = 0;
             // 
@@ -317,10 +317,21 @@
             // 
             // dgvReporteClientes
             // 
+            this.dgvReporteClientes.AllowUserToAddRows = false;
+            this.dgvReporteClientes.AllowUserToResizeColumns = false;
+            this.dgvReporteClientes.AllowUserToResizeRows = false;
+            this.dgvReporteClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvReporteClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReporteClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvReporteClientes.BackgroundColor = System.Drawing.Color.White;
+            this.dgvReporteClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvReporteClientes.GridColor = System.Drawing.Color.Black;
             this.dgvReporteClientes.Location = new System.Drawing.Point(10, 35);
             this.dgvReporteClientes.Name = "dgvReporteClientes";
-            this.dgvReporteClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvReporteClientes.ReadOnly = true;
+            this.dgvReporteClientes.RowHeadersVisible = false;
             this.dgvReporteClientes.Size = new System.Drawing.Size(915, 259);
             this.dgvReporteClientes.TabIndex = 0;
             // 
@@ -495,10 +506,21 @@
             // 
             // dgvReporteVentas
             // 
+            this.dgvReporteVentas.AllowUserToResizeColumns = false;
+            this.dgvReporteVentas.AllowUserToResizeRows = false;
+            this.dgvReporteVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvReporteVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvReporteVentas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvReporteVentas.BackgroundColor = System.Drawing.Color.White;
+            this.dgvReporteVentas.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvReporteVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvReporteVentas.GridColor = System.Drawing.Color.Black;
             this.dgvReporteVentas.Location = new System.Drawing.Point(10, 35);
             this.dgvReporteVentas.Name = "dgvReporteVentas";
-            this.dgvReporteVentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvReporteVentas.ReadOnly = true;
+            this.dgvReporteVentas.RowHeadersVisible = false;
             this.dgvReporteVentas.Size = new System.Drawing.Size(930, 258);
             this.dgvReporteVentas.TabIndex = 1;
             // 
@@ -511,84 +533,6 @@
             this.label1.Size = new System.Drawing.Size(158, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle de Ventas";
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel7.Controls.Add(this.pictureBox6, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.lblFacturasEmitidas, 1, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(449, 2);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(443, 78);
-            this.tableLayoutPanel7.TabIndex = 2;
-            // 
-            // lblFacturasEmitidas
-            // 
-            this.lblFacturasEmitidas.AutoSize = true;
-            this.lblFacturasEmitidas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblFacturasEmitidas.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFacturasEmitidas.Location = new System.Drawing.Point(157, 0);
-            this.lblFacturasEmitidas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFacturasEmitidas.Name = "lblFacturasEmitidas";
-            this.lblFacturasEmitidas.Size = new System.Drawing.Size(284, 27);
-            this.lblFacturasEmitidas.TabIndex = 0;
-            this.lblFacturasEmitidas.Text = "Facturas Emitidas";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox6.Image = global::Vista.Properties.Resources.Facturas_emitidas;
-            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(149, 72);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 2;
-            this.pictureBox6.TabStop = false;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel6.Controls.Add(this.pictureBox5, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.lblVentasTotales, 1, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(443, 78);
-            this.tableLayoutPanel6.TabIndex = 3;
-            // 
-            // lblVentasTotales
-            // 
-            this.lblVentasTotales.AutoSize = true;
-            this.lblVentasTotales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblVentasTotales.Font = new System.Drawing.Font("Times New Roman", 16F);
-            this.lblVentasTotales.Location = new System.Drawing.Point(157, 0);
-            this.lblVentasTotales.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblVentasTotales.Name = "lblVentasTotales";
-            this.lblVentasTotales.Size = new System.Drawing.Size(284, 25);
-            this.lblVentasTotales.TabIndex = 0;
-            this.lblVentasTotales.Text = "Ventas Totales";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox5.Image = global::Vista.Properties.Resources.ventas_totales_reportes;
-            this.pictureBox5.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(149, 72);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
             // 
             // tableLayoutPanel4
             // 
@@ -606,6 +550,84 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(915, 82);
             this.tableLayoutPanel4.TabIndex = 4;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel6.Controls.Add(this.pictureBox5, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.lblVentasTotales, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(443, 78);
+            this.tableLayoutPanel6.TabIndex = 3;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox5.Image = global::Vista.Properties.Resources.ventas_totales_reportes;
+            this.pictureBox5.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(149, 72);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
+            // 
+            // lblVentasTotales
+            // 
+            this.lblVentasTotales.AutoSize = true;
+            this.lblVentasTotales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblVentasTotales.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.lblVentasTotales.Location = new System.Drawing.Point(157, 0);
+            this.lblVentasTotales.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVentasTotales.Name = "lblVentasTotales";
+            this.lblVentasTotales.Size = new System.Drawing.Size(284, 25);
+            this.lblVentasTotales.TabIndex = 0;
+            this.lblVentasTotales.Text = "Ventas Totales";
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
+            this.tableLayoutPanel7.Controls.Add(this.pictureBox6, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lblFacturasEmitidas, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(449, 2);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(443, 78);
+            this.tableLayoutPanel7.TabIndex = 2;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox6.Image = global::Vista.Properties.Resources.Facturas_emitidas;
+            this.pictureBox6.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(149, 72);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 2;
+            this.pictureBox6.TabStop = false;
+            // 
+            // lblFacturasEmitidas
+            // 
+            this.lblFacturasEmitidas.AutoSize = true;
+            this.lblFacturasEmitidas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblFacturasEmitidas.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFacturasEmitidas.Location = new System.Drawing.Point(157, 0);
+            this.lblFacturasEmitidas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFacturasEmitidas.Name = "lblFacturasEmitidas";
+            this.lblFacturasEmitidas.Size = new System.Drawing.Size(284, 27);
+            this.lblFacturasEmitidas.TabIndex = 0;
+            this.lblFacturasEmitidas.Text = "Facturas Emitidas";
             // 
             // frmReportes
             // 
@@ -642,13 +664,13 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteVentas)).EndInit();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }

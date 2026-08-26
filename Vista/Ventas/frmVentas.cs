@@ -61,8 +61,22 @@ namespace Vista.Ventas
             // Cargar clientes
             CargarComboBoxClientes();
 
-            // Cargar mÃ©todos de pago
+            // Cargar metodos de pago
             CargarComboBoxMetodosDePago();
+
+            //Validacion de fecha
+            dtFechaVenta.MaxDate = DateTime.Today;
+
+            //Navegar con la tecla Tab
+            cbCliente.TabIndex = 1;
+            dtFechaVenta.TabIndex = 2;
+            cbMetodoPago.TabIndex = 3;
+            btnAgregarProductos.TabIndex = 4;
+            txtSubTotal.TabIndex = 5;
+            txtTotalPagar.TabIndex = 6;
+            btnGuardar.TabIndex = 7;
+            btnEditar.TabIndex = 8;
+            btnEliminar.TabIndex = 9;
         }
 
         int idVentaSeleccionada = 0;
@@ -163,7 +177,7 @@ namespace Vista.Ventas
                 return;
             }
 
-            // VALIDAR MÃ‰TODO DE PAGO
+            // VALIDAR METODO DE PAGO
 
             if (cbMetodoPago.SelectedIndex == -1)
             {
@@ -223,11 +237,7 @@ namespace Vista.Ventas
             // Si devuelve 0 es porque ocurrió un error
             if (idVenta <= 0)
             {
-                MessageBox.Show(
-                    "No se pudo guardar la venta.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("No se pudo guardar la venta.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
                 return;
             }
@@ -241,24 +251,15 @@ namespace Vista.Ventas
                 // Guardar detalle
                 if (!detalle.InsertarDetalleVenta())
                 {
-                    MessageBox.Show(
-                        "La venta fue creada, pero ocurrió un error "
-                        + "al guardar uno de los detalles.",
-                        "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+                    MessageBox.Show("La venta fue creada, pero ocurrió un error " + "al guardar uno de los detalles.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
                     return;
                 }
             }
 
-            //  VALIDAR QUE TODO SE GUARDÃ“ CORRECTAMENTE
+            //  VALIDAR QUE TODO SE GUARDA CORRECTAMENTE
            
-            MessageBox.Show(
-                "Venta registrada correctamente.",
-                "Registro exitoso",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            MessageBox.Show("Venta registrada correctamente.","Registro exitoso",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
             // LIMPIAR FORMULARIO
 
@@ -278,12 +279,6 @@ namespace Vista.Ventas
             MostrarVentas();
 
         }
-
-       
-
-
-
-
 
         private void txtIVA_TextChanged(object sender, EventArgs e)
         {
@@ -325,8 +320,7 @@ namespace Vista.Ventas
            
             // ABRIR FORMULARIO DE DETALLE DE VENTA
            
-            using (FrmDetalleVenta formulario =
-                new FrmDetalleVenta())
+            using (FrmDetalleVenta formulario =  new FrmDetalleVenta())
             {
                 // Abrir FrmDetalleVenta y esperar
                 // a que el usuario agregue el producto
@@ -336,8 +330,7 @@ namespace Vista.Ventas
 
                     // Obtener el detalle que se guardo en el 
                     // FrmDetalleVenta
-                    DetalleVenta detalle =
-                        formulario.DetalleSeleccionado;
+                    DetalleVenta detalle =formulario.DetalleSeleccionado;
 
 
                     // AGREGAR EL PRODUCTO A LA LISTA
@@ -439,5 +432,22 @@ namespace Vista.Ventas
                 }
             }
         }
+
+        private void DesactivarCopiarPegar(Control control)
+        {
+            foreach (Control elemento in control.Controls)
+            {
+                if (elemento is TextBox)
+                {
+                    ((TextBox)elemento).ShortcutsEnabled = false;
+                }
+
+                if (elemento.HasChildren)
+                {
+                    DesactivarCopiarPegar(elemento);
+                }
+            }
+        }
+
     }
 }

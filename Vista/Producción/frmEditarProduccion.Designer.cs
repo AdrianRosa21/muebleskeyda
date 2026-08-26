@@ -59,7 +59,7 @@
             // 
             // nudProgreso
             // 
-            this.nudProgreso.Location = new System.Drawing.Point(466, 113);
+            this.nudProgreso.Location = new System.Drawing.Point(467, 113);
             this.nudProgreso.Name = "nudProgreso";
             this.nudProgreso.Size = new System.Drawing.Size(119, 20);
             this.nudProgreso.TabIndex = 45;

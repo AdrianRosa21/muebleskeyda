@@ -49,11 +49,17 @@ namespace Vista.Inventario
             CargarComboBoxCategorias();
             DesactivarCopiarPegar(this);
             btnGuardarCambios.Visible = false;
+
+            //Navegar con la tecla Tab
             txtMaterial.TabIndex = 1;
             cbCategorias.TabIndex = 2;
             txtCantidad.TabIndex = 3;
             cbUnidadMedida.TabIndex = 4;
             btnGuardar.TabIndex = 5;
+            btnEditar.TabIndex = 6;
+
+            //Maximo de caracteres admitidos
+            txtMaterial.MaxLength = 100;
         }
 
         private void CargarComboBoxCategorias()
@@ -152,7 +158,7 @@ namespace Vista.Inventario
             material.idMaterial1 = 0 ;
             material.NombreDelMaterial1 = txtMaterial.Text;
             material.UnidadDeMedida1 = cbUnidadMedida.Text;
-            material.Stock1 = stock;
+            material.Stock1 = 0;
             material.Categoria1 = cbCategorias.Text;
 
             bool resultado = material.InsertarMateriales();
@@ -300,6 +306,23 @@ namespace Vista.Inventario
                 {
                     DesactivarCopiarPegar(elemento);
                 }
+            }
+        }
+
+        private void txtMaterial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtMaterial.MaxLength = 100;
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

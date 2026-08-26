@@ -176,19 +176,29 @@ namespace Vista.Producción
             // 
             // pnlContenedorTabla
             // 
+            this.pnlContenedorTabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorTabla.BackColor = System.Drawing.Color.White;
             this.pnlContenedorTabla.Controls.Add(this.dgvProduccion);
             this.pnlContenedorTabla.Controls.Add(this.btnEditar);
             this.pnlContenedorTabla.Location = new System.Drawing.Point(29, 268);
             this.pnlContenedorTabla.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContenedorTabla.Name = "pnlContenedorTabla";
-            this.pnlContenedorTabla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlContenedorTabla.Size = new System.Drawing.Size(1045, 337);
             this.pnlContenedorTabla.TabIndex = 3;
             // 
             // dgvProduccion
             // 
+            this.dgvProduccion.AllowUserToDeleteRows = false;
+            this.dgvProduccion.AllowUserToResizeColumns = false;
+            this.dgvProduccion.AllowUserToResizeRows = false;
+            this.dgvProduccion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProduccion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProduccion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProduccion.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,16 +207,20 @@ namespace Vista.Producción
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProduccion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProduccion.ColumnHeadersHeight = 42;
             this.dgvProduccion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvProduccion.GridColor = System.Drawing.Color.Black;
             this.dgvProduccion.Location = new System.Drawing.Point(19, 12);
             this.dgvProduccion.Name = "dgvProduccion";
             this.dgvProduccion.ReadOnly = true;
-            this.dgvProduccion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProduccion.RowHeadersVisible = false;
+            this.dgvProduccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvProduccion.Size = new System.Drawing.Size(1011, 258);
             this.dgvProduccion.TabIndex = 3;
             // 
             // btnEditar
             // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(61)))), ((int)(((byte)(21)))));
             this.btnEditar.FlatAppearance.BorderSize = 0;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -214,7 +228,6 @@ namespace Vista.Producción
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEditar.Location = new System.Drawing.Point(19, 289);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditar.Size = new System.Drawing.Size(219, 40);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
@@ -362,10 +375,10 @@ namespace Vista.Producción
             this.pnlHeader.Controls.Add(this.pnlContenedorTabla);
             this.pnlHeader.Controls.Add(this.pnlIndicador1);
             this.pnlHeader.Controls.Add(this.pnlIndicador2);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlHeader.Size = new System.Drawing.Size(1102, 627);
             this.pnlHeader.TabIndex = 3;
             // 

@@ -87,11 +87,24 @@ namespace Vista.Pedidos
             ActualizarEstadisticas();
             DesactivarCopiarPegar(this);
 
+
             pnlRegistroClienteIndividual.Visible = true;
             pnlRegistroClienteCorporativo.Visible = false;
 
             pnlBarraClienteIndividual.Visible = true;
             pnlBarraClienteCorporativo.Visible = false;
+
+            // Validacion del máximo de caracteres admitidos en los TextBox
+            txtDireccion.MaxLength = 200;
+            txtApellidos.MaxLength = 40;
+            txtNombres.MaxLength = 40;
+            txtNombreEmpresa.MaxLength = 40;
+            txtNombreEncargado.MaxLength = 40;
+            txtDUI.MaxLength = 10;
+            txtNIT.MaxLength = 14;
+            txtTelefono.MaxLength = 9;
+            txtCorreo.MaxLength = 50;
+
         }
 
         private void ActualizarEstadisticas()
@@ -103,6 +116,27 @@ namespace Vista.Pedidos
 
         private void cbTipoCliente_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            if (cbTipoCliente.Text == "Persona Natural")
+            {                txtNombres.TabIndex = 1;
+                txtApellidos.TabIndex = 2;
+                txtDUI.TabIndex = 3;
+                txtTelefono.TabIndex = 4;
+                txtCorreo.TabIndex = 5;
+                txtDireccion.TabIndex = 6;
+                btnEditar.TabIndex = 7;
+                btnGuardarIndividual.TabIndex = 8;
+            }
+            else if (cbTipoCliente.Text == "Empresa")
+            {
+                txtNombreEmpresa.TabIndex = 1;
+                txtNombreEncargado.TabIndex = 2;
+                txtNIT.TabIndex = 3;
+                txtTelefono.TabIndex = 4;
+                txtCorreo.TabIndex = 5;
+                txtDireccion.TabIndex = 6;
+                btnEditar.TabIndex = 7;
+                btnGuardarCorporativo.TabIndex = 8;
+            }
 
             if (cbTipoCliente.SelectedIndex ==0)
             {
@@ -165,20 +199,22 @@ namespace Vista.Pedidos
                 return;
             }
 
-            // Validar correo
+            //Validar Correo
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                MessageBox.Show("El correo es obligatorio.");
+                txtCorreo.Focus();
+                return;
+            }
+
             try
             {
                 MailAddress correo = new MailAddress(txtCorreo.Text);
-
-                if (correo.Address != txtCorreo.Text)
-                {
-                    MessageBox.Show("Ingrese un correo válido.");
-                    return;
-                }
             }
             catch
             {
                 MessageBox.Show("Ingrese un correo válido.");
+                txtCorreo.Focus();
                 return;
             }
 
@@ -326,13 +362,16 @@ namespace Vista.Pedidos
             BloquearCampos();
 
             btnEditar.Visible = true;
-            btnGuardarCambios.Visible = false;
+            btnGuardarCambios.Visible = true;
             //Muestra el Combo Box necesario y el otro lo oculta
             gbDatosEmpresa.Visible = true;
             gbPersonaNatural.Visible = false;
             //Muestra la tabla de registros segun el tipo de cliente
             pnlRegistroClienteIndividual.Visible = false;
             pnlRegistroClienteCorporativo.Visible = true;
+
+            //Muestra siempre el boton aunque se quiera editar
+            btnGuardarCorporativo.Visible = false;
         }
 
         private void BloquearCampos()
@@ -410,7 +449,8 @@ namespace Vista.Pedidos
             BloquearCampos();
 
             btnEditar.Visible = true;
-            btnGuardarCambios.Visible = false;
+            btnGuardarCorporativo.Visible = false;
+            btnGuardarCambios.Visible = true;
             //Muestra el Combo Box necesario y el otro lo oculta
 
             gbDatosEmpresa.Visible = false;
@@ -418,6 +458,8 @@ namespace Vista.Pedidos
             //Muestra la tabla de registros segun el tipo de cliente
             pnlRegistroClienteIndividual.Visible = true;
             pnlRegistroClienteCorporativo.Visible = false;
+
+            btnGuardarCorporativo.Visible = true;
         }
 
         private void btnGuardarCambios_Click(object sender, EventArgs e)
@@ -477,7 +519,7 @@ namespace Vista.Pedidos
 
                 // Volver a mostrar Editar
                 btnEditar.Visible = true;
-                btnGuardarCambios.Visible= true;
+                btnGuardarCambios.Visible= false;
             }
         }
 
@@ -664,6 +706,31 @@ namespace Vista.Pedidos
                 {
                     DesactivarCopiarPegar(elemento);
                 }
+            }
+        }
+
+        private void txtNombres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != '#' && e.KeyChar != '-' && e.KeyChar != '/' &&
+            e.KeyChar != '.' && e.KeyChar != ',' && e.KeyChar != '(' && e.KeyChar != ')')
+            {
+                e.Handled = true;
             }
         }
     }

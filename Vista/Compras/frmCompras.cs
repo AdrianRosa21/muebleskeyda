@@ -71,14 +71,11 @@ namespace Vista.Compras
             ConfigurarDetalleCompra();
             DesactivarCopiarPegar(this);
 
-            dtpFechaDeCompra.Value = DateTime.Now;
-
             nudCantidad.Minimum = 1;
             nudCantidad.Value = 1;
 
             txtTotalCompra.Text = "0.00";
             //Navegar con TabIndex
-
             cbProveedor.TabIndex = 0;
             dtpFechaDeCompra.TabIndex = 1;
             cbMaterial.TabIndex = 2;
@@ -86,8 +83,10 @@ namespace Vista.Compras
             txtPrecioUnitario.TabIndex = 4;
             btnAgregarProductos.TabIndex = 5;
             btnActualizar.TabIndex = 6;
+
             // No se podra seleccionar fechas futuras
             dtpFechaDeCompra.MaxDate = DateTime.Today;
+            dtpFechaDeCompra.Value = DateTime.Today;
         }
         private void MostrarCompras()
         {
@@ -164,8 +163,7 @@ namespace Vista.Compras
 
 
             // MATERIAL
-            DataGridViewTextBoxColumn material =
-                new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn material =new DataGridViewTextBoxColumn();
 
             material.Name = "Material";
             material.HeaderText = "Material";
@@ -174,8 +172,7 @@ namespace Vista.Compras
 
 
             // CANTIDAD
-            DataGridViewTextBoxColumn cantidad =
-                new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn cantidad = new DataGridViewTextBoxColumn();
 
             cantidad.Name = "Cantidad";
             cantidad.HeaderText = "Cantidad";
@@ -184,8 +181,7 @@ namespace Vista.Compras
 
 
             // PRECIO UNITARIO
-            DataGridViewTextBoxColumn precio =
-                new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn precio = new DataGridViewTextBoxColumn();
 
             precio.Name = "PrecioUnitario";
             precio.HeaderText = "Precio Unitario";
@@ -194,8 +190,7 @@ namespace Vista.Compras
 
 
             // SUBTOTAL
-            DataGridViewTextBoxColumn subtotal =
-                new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn subtotal = new DataGridViewTextBoxColumn();
 
             subtotal.Name = "Subtotal";
             subtotal.HeaderText = "Subtotal";
@@ -295,12 +290,7 @@ namespace Vista.Compras
                 decimal subtotal =
                     detalle.Cantidad1 * detalle.PrecioUnitario1;
 
-                dgvDetalleCompras.Rows.Add(
-                    detalle.IdMaterial1,
-                    nombreMaterial,
-                    detalle.Cantidad1,
-                    detalle.PrecioUnitario1.ToString("0.00"),
-                    subtotal.ToString("0.00")
+                dgvDetalleCompras.Rows.Add( detalle.IdMaterial1, nombreMaterial, detalle.Cantidad1, detalle.PrecioUnitario1.ToString("0.00"), subtotal.ToString("0.00")
                 );
             }
 
@@ -328,7 +318,7 @@ namespace Vista.Compras
 
             txtPrecioUnitario.Clear();
 
-            dtpFechaDeCompra.Value = DateTime.Now;
+            dtpFechaDeCompra.Value = DateTime.Today;
 
             detallesTemporales.Clear();
             detallesOriginales.Clear();
@@ -439,10 +429,7 @@ namespace Vista.Compras
                 if (e.RowIndex < 0 || ((DataGridView)sender).Rows[e.RowIndex].IsNewRow)
                     return;
 
-                idCompraSeleccionada =
-                    Convert.ToInt32(
-                        dgvHistorialCompras.Rows[e.RowIndex]
-                        .Cells["IdCompra"].Value);
+                idCompraSeleccionada = Convert.ToInt32( dgvHistorialCompras.Rows[e.RowIndex].Cells["IdCompra"].Value);
 
                 CargarCompraParaEditar(idCompraSeleccionada);
         }
@@ -502,28 +489,21 @@ namespace Vista.Compras
             if (e.RowIndex < 0 || ((DataGridView)sender).Rows[e.RowIndex].IsNewRow)
                 return;
 
-            DataGridViewRow fila =
-                dgvDetalleCompras.Rows[e.RowIndex];
-            idDetalleEditando =
-        Convert.ToInt32(
-            fila.Cells["IdDetalleCompraMaterial"].Value);
+            DataGridViewRow fila =dgvDetalleCompras.Rows[e.RowIndex];
+            idDetalleEditando =Convert.ToInt32(fila.Cells["IdDetalleCompraMaterial"].Value);
 
-            int idMaterial =
-                Convert.ToInt32(fila.Cells["IdMaterial"].Value);
+            int idMaterial = Convert.ToInt32(fila.Cells["IdMaterial"].Value);
 
-            int cantidad =
-                Convert.ToInt32(fila.Cells["Cantidad"].Value);
+            int cantidad = Convert.ToInt32(fila.Cells["Cantidad"].Value);
 
-            decimal precio =
-                Convert.ToDecimal(fila.Cells["PrecioUnitario"].Value);
+            decimal precio = Convert.ToDecimal(fila.Cells["PrecioUnitario"].Value);
 
             // Pasar información al formulario de la izquierda
             cbMaterial.SelectedValue = idMaterial;
 
             nudCantidad.Value = cantidad;
 
-            txtPrecioUnitario.Text =
-                precio.ToString("0.00");
+            txtPrecioUnitario.Text =precio.ToString("0.00");
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -531,60 +511,48 @@ namespace Vista.Compras
            
             if (idDetalleEditando == 0)
             {
-                MessageBox.Show(
-                    "Selecciona un detalle para editar.");
+                MessageBox.Show("Selecciona un detalle para editar.");
                 return;
             }
 
             if (cbMaterial.SelectedIndex == -1)
             {
-                MessageBox.Show(
-                    "Selecciona un material.");
+                MessageBox.Show("Selecciona un material.");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(txtPrecioUnitario.Text))
             {
-                MessageBox.Show(
-                    "Ingresa el precio unitario.");
+                MessageBox.Show("Ingresa el precio unitario.");
                 return;
             }
 
-            if (!decimal.TryParse(
-                txtPrecioUnitario.Text,
-                out decimal precio))
+            if (!decimal.TryParse(txtPrecioUnitario.Text,out decimal precio))
             {
-                MessageBox.Show(
-                    "Ingresa un precio válido.");
+                MessageBox.Show("Ingresa un precio válido.");
                 return;
             }
 
             if (precio <= 0)
             {
-                MessageBox.Show(
-                    "El precio debe ser mayor que 0.");
+                MessageBox.Show("El precio debe ser mayor que 0.");
                 return;
             }
 
-            int cantidad =
-                Convert.ToInt32(nudCantidad.Value);
+            int cantidad =Convert.ToInt32(nudCantidad.Value);
 
             if (cantidad <= 0)
             {
-                MessageBox.Show(
-                    "La cantidad debe ser mayor que 0.");
+                MessageBox.Show("La cantidad debe ser mayor que 0.");
                 return;
             }
 
-            int idMaterial =
-                Convert.ToInt32(cbMaterial.SelectedValue);
+            int idMaterial =Convert.ToInt32(cbMaterial.SelectedValue);
 
             // Buscar el detalle que estamos editando
-            foreach (DetalleCompraMaterial detalle
-                     in detallesTemporales)
+            foreach (DetalleCompraMaterial detalle in detallesTemporales)
             {
-                if (detalle.IdDetalleCompraMaterial1
-                    == idDetalleEditando)
+                if (detalle.IdDetalleCompraMaterial1 == idDetalleEditando)
                 {
                     detalle.IdMaterial1 = idMaterial;
                     detalle.Cantidad1 = cantidad;
@@ -650,6 +618,13 @@ namespace Vista.Compras
             }
         }
 
+        private void txtPrecioUnitario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 
 }

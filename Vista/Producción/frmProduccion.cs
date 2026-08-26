@@ -23,6 +23,9 @@ namespace Vista.Producción
         private void frmProduccion_Load(object sender, EventArgs e)
         {
             MostrarProduccion();
+
+            dgvProduccion.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvProduccion.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         public void MostrarProduccion()
