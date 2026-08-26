@@ -60,7 +60,6 @@ namespace Modelo.Entidades
                     comandoObjeto.Parameters.AddWithValue("@NombreDelMaterial",NombreDelMaterial1);
                     comandoObjeto.Parameters.AddWithValue("@IdUnidad", ObtenerIdUnidadDeMedida(UnidadDeMedida1));
                     comandoObjeto.Parameters.AddWithValue("@Stock", Stock1);
-                    comandoObjeto.Parameters.AddWithValue("@Stock",Stock1);
                     comandoObjeto.Parameters.AddWithValue("@Categoria",Categoria);
                     try
                     {

@@ -152,7 +152,7 @@ namespace Vista.Inventario
             material.idMaterial1 = 0 ;
             material.NombreDelMaterial1 = txtMaterial.Text;
             material.UnidadDeMedida1 = cbUnidadMedida.Text;
-            material.Stock1 = 0;
+            material.Stock1 = stock;
             material.Categoria1 = cbCategorias.Text;
 
             bool resultado = material.InsertarMateriales();

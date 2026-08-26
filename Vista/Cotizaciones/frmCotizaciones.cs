@@ -220,15 +220,34 @@ namespace Vista.Cotizaciones
             if (idCotizacion == 0)
             {
                 MessageBox.Show("No se pudo registrar la cotizaci?n.");
-
                 return;
             }
+            
+            // Guardar detalles
+            foreach (DataGridViewRow row in dgvDetalleDeCotizacion.Rows)
+            {
+                if (row.IsNewRow) continue;
+                if (row.Cells["DescripcionMueble"].Value == null) continue;
+                
+                ProductosCotizacion prod = new ProductosCotizacion();
+                prod.Idcotizacion1 = idCotizacion;
+                prod.Descripcion_Del_Mueble1 = row.Cells["DescripcionMueble"].Value.ToString();
+                prod.Largo1 = Convert.ToInt32(row.Cells["Largo"].Value);
+                prod.Ancho1 = Convert.ToInt32(row.Cells["Ancho"].Value);
+                prod.Alto1 = Convert.ToInt32(row.Cells["Alto"].Value);
+                prod.Cantidad1 = Convert.ToInt32(row.Cells["Cantidad"].Value);
+                prod.PrecioUnitario1 = Convert.ToDouble(row.Cells["PrecioUnitario"].Value);
+                prod.SubTotal1 = Convert.ToDouble(row.Cells["SubTotal"].Value);
+                
+                prod.InsertarProductoCotizacion();
+            }
 
-            MessageBox.Show("Cotizaci?n registrada correctamente.\n\n" +"N?mero de cotizaci?n: " + idCotizacion, "Cotizaci?n", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cotizaci?n y productos registrados correctamente.\n\n" +"N?mero de cotizaci?n: " + idCotizacion, "Cotizaci?n", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             MostrarCotizacionesRegistradas();
 
             LimpiarFormulario();
+            dgvDetalleDeCotizacion.Rows.Clear();
         }
 
 

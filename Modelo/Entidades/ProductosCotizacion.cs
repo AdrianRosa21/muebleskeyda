@@ -49,6 +49,39 @@ namespace Modelo.Entidades
         public double SubTotal1 { get => SubTotal; set => SubTotal=value; }
         public int Idcotizacion1 { get => Idcotizacion; set => Idcotizacion=value; }
 
+        
+        public bool InsertarProductoCotizacion()
+        {
+            string comandoSQL = @"INSERT INTO Productos_Cotizacion (DescripcionMueble, Largo, Ancho, Alto, Cantidad, PrecioUnitario, SubTotal, IdCotizacion) 
+                                  VALUES (@DescripcionMueble, @Largo, @Ancho, @Alto, @Cantidad, @PrecioUnitario, @SubTotal, @IdCotizacion);";
+
+            using (SqlConnection conexion = Conexion.Conectar())
+            {
+                using (SqlCommand comandoObjeto = new SqlCommand(comandoSQL, conexion))
+                {
+                    comandoObjeto.Parameters.AddWithValue("@DescripcionMueble", Descripcion_Del_Mueble1);
+                    comandoObjeto.Parameters.AddWithValue("@Largo", Largo1);
+                    comandoObjeto.Parameters.AddWithValue("@Ancho", Ancho1);
+                    comandoObjeto.Parameters.AddWithValue("@Alto", Alto1);
+                    comandoObjeto.Parameters.AddWithValue("@Cantidad", Cantidad1);
+                    comandoObjeto.Parameters.AddWithValue("@PrecioUnitario", PrecioUnitario1);
+                    comandoObjeto.Parameters.AddWithValue("@SubTotal", SubTotal1);
+                    comandoObjeto.Parameters.AddWithValue("@IdCotizacion", Idcotizacion1);
+
+                    try
+                    {
+                        int filaAfectada = comandoObjeto.ExecuteNonQuery();
+                        return filaAfectada > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: " + ex.Message);
+                        return false;
+                    }
+                }
+            }
+        }
+
         public static DataTable CargarDetalleCotizacion()
         {
             SqlConnection conectar = Conexion.Conectar();
